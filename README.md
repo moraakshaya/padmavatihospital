@@ -36,9 +36,41 @@ To deploy to cPanel:
 
 ### Pre-rendering Note
 
-The initial configuration called for `vite-plugin-prerender@^1.4.0`, but this version does not exist. The latest available version (1.0.8) has compatibility issues with Vite 7+. For pre-rendering functionality in the future, consider using modern alternatives like:
-- [vite-react-ssg](https://github.com/Daydreamer-riri/vite-react-ssg)
-- [vite-ssg](https://github.com/antfu-collective/vite-ssg)
+The initial configuration called for `vite-plugin-prerender@^1.4.0`, but this version does not exist. The latest available version (1.0.8) has compatibility issues with Vite 7+ due to ES module `require()` usage that causes build failures.
+
+#### Why Pre-rendering?
+Pre-rendering generates static HTML files for each route at build time, which improves:
+- Initial page load time
+- SEO (search engines get fully rendered HTML)
+- Performance on slow connections
+
+#### Alternative Solutions
+For pre-rendering functionality in the future, consider using modern alternatives:
+- [vite-react-ssg](https://github.com/Daydreamer-riri/vite-react-ssg) - React-specific SSG for Vite
+- [vite-ssg](https://github.com/antfu-collective/vite-ssg) - General SSG plugin for Vite
+
+#### Example Configuration
+If using a compatible pre-rendering plugin, the configuration would be:
+
+```javascript
+// vite.config.js
+import vitePrerender from "vite-plugin-prerender";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default defineConfig({
+  plugins: [
+    react(),
+    vitePrerender({
+      staticDir: path.join(__dirname, 'dist'),
+      routes: ['/', '/About', '/Doctors', '/Gallery', '/Contact', '/Blog', '/Testimonials', '/Bookappoinment', '/Insurance']
+    })
+  ]
+});
+```
 
 The critical SEO improvements (BrowserRouter + .htaccess) are fully functional without pre-rendering.
 
