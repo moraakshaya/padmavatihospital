@@ -162,7 +162,7 @@ function Home() {
         <div className="home-cardiology-container">
 
           <div className={`home-cardiology-image ${animateCardio ? "slow-slide-up" : ""}`}>
-            <img src="/public/cardiology.png" alt="Cardiology" />
+            <img src="/public/cardiology.webp" alt="Cardiology" />
           </div>
 
           <div className="home-cardiology-content">

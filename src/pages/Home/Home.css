@@ -1,7 +1,7 @@
 .hero-section {
   width: 100%;
   height: 90vh;
-  background-image: url('/public/landingimg.png'); /* your uploaded image */
+  background-image: url('/public/landingimg.webp'); /* your uploaded image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
