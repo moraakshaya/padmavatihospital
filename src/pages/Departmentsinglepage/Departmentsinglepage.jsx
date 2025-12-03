@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import departmentsData from "../../data/departmentsinglepagedata";
-import "./departmentsinglepage.css";
+import "./Departmentsinglepage.css";
 
 // ------------------ REUSABLE HOOK ------------------
 const useSectionAnimation = () => {
