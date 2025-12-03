@@ -73,7 +73,7 @@ function Doctors() {
       {/* DOCTORS HERO SECTION */}
       <section className="doctors-hero" ref={heroRef}>
         <video className="background-video" autoPlay loop muted>
-          <source src="/public/doctors/herovideo.mp4" type="video/mp4" />
+          <source src="/doctors/herovideo.mp4" type="video/mp4" />
         </video>
 
         <div className="overlay"></div>
