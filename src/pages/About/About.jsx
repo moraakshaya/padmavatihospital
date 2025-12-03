@@ -145,7 +145,7 @@ function About() {
           {/* LEFT IMAGE */}
           <div className={`history-image ${historyVisible ? "slide-in-bottom" : ""}`}>
             <img
-              src="/landingimg.png"
+              src="/landingimg.webp"
               alt="PMC Hospital"
             />
           </div>

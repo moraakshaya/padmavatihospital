@@ -7,14 +7,15 @@ const galleryData = [
   // { id: 2, category: "patient", img: "/images/gallery/p2.jpg" },
 
   // Infrastructure
-  { id: 3, category: "infrastructure", img: "/public/gallery/gallery1.webp" },
-  { id: 4, category: "infrastructure", img: "/public/gallery/gallery2.webp" },
-  { id: 5, category: "infrastructure", img: "/public/gallery/gallery3.webp" },
-  { id: 6, category: "infrastructure", img: "/public/gallery/gallery4.webp" },
-  { id: 7, category: "infrastructure", img: "/public/gallery/gallery5.webp" },
-  { id: 8, category: "infrastructure", img: "/public/gallery/gallery6.webp" },
-  { id: 9, category: "infrastructure", img: "/public/gallery/gallery7.webp" },
-  { id: 10, category: "infrastructure", img: "/public/gallery/gallery8.webp" },
+  { id: 3, category: "infrastructure", img: "/gallery/gallery1.webp" },
+  { id: 4, category: "infrastructure", img: "/gallery/gallery2.webp" },
+  { id: 5, category: "infrastructure", img: "/gallery/gallery3.webp" },
+  { id: 6, category: "infrastructure", img: "/gallery/gallery4.webp" },
+  { id: 7, category: "infrastructure", img: "/gallery/gallery5.webp" },
+  { id: 8, category: "infrastructure", img: "/gallery/gallery6.webp" },
+  { id: 9, category: "infrastructure", img: "/gallery/gallery7.webp" },
+  { id: 10, category: "infrastructure", img: "/gallery/gallery8.webp" },
+  { id: 11, category: "infrastructure", img: "/gallery/gallery9.webp" },
 
   // Doctors at Work
   // { id: 5, category: "doctors", img: "/images/gallery/d1.jpg" },
