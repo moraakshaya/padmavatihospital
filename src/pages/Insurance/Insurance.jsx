@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Insurance.css"
 import {
     FaHeadset,       // 24/7 Support
@@ -18,21 +18,20 @@ function Insurance() {
         { icon: <FaShieldAlt />, title: "Secure & Reliable", desc: "Your data and policy are safe with us." }
     ];
 
-   const insuranceCompanies = [
-    { name: "The New India Assurance Company Limited", img: "/insurance/newindia.webp" },
-    { name: "Oriental Insurance Co. Ltd", img: "/insurance/oriental.webp" },
-    { name: "National Insurance Co. Ltd", img: "/insurance/national.webp" },
-    { name: "United India Insurance Co Ltd", img: "/insurance/united.webp" },
-    { name: "ICICI Lombard General Insurance Co. Ltd", img: "/insurance/icici.webp" },
-    { name: "TATA AIG General Insurance Co. Ltd.", img: "/insurance/tataaig.webp" },
-    { name: "Star Health & Allied Insurance", img: "/insurance/star.webp" },
-    { name: "Safe way Insurance", img: "/insurance/safeway.webp" },
-    { name: "Heritage Health Insurance", img: "/insurance/heritage.webp" },
-    { name: "SBI General Insurance Co. Ltd", img: "/insurance/sbi.webp" },
-    { name: "FHPL Insurance", img: "/insurance/fhpl.webp" },
-    { name: "Volo Health Insurance", img: "/insurance/volo.webp" }
-];
-
+    const insuranceCompanies = [
+        { name: "The New India Assurance Company Limited", img: "/insurance/newindia.webp" },
+        { name: "Oriental Insurance Co. Ltd", img: "/insurance/oriental.webp" },
+        { name: "National Insurance Co. Ltd", img: "/insurance/national.webp" },
+        { name: "United India Insurance Co Ltd", img: "/insurance/united.webp" },
+        { name: "ICICI Lombard General Insurance Co. Ltd", img: "/insurance/icici.webp" },
+        { name: "TATA AIG General Insurance Co. Ltd.", img: "/insurance/tataaig.webp" },
+        { name: "Star Health & Allied Insurance", img: "/insurance/star.webp" },
+        { name: "Safe way Insurance", img: "/insurance/safeway.webp" },
+        { name: "Heritage Health Insurance", img: "/insurance/heritage.webp" },
+        { name: "SBI General Insurance Co. Ltd", img: "/insurance/sbi.webp" },
+        { name: "FHPL Insurance", img: "/insurance/fhpl.webp" },
+        { name: "Volo Health Insurance", img: "/insurance/volo.webp" }
+    ];
 
 
     //GET A QUOTE FORM POP-UP MODAL
@@ -71,18 +70,114 @@ function Insurance() {
         setShowModal(false);
     };
 
+
+    //HERO SECTION ANIMATION
+    const sectionRef = useRef(null);
+    const textRef = useRef(null);
+    const imageRef = useRef(null);
+    const [hasAnimated, setHasAnimated] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !hasAnimated) {
+                        textRef.current.classList.add("slide-in-left");
+                        imageRef.current.classList.add("slide-in-bottom");
+                        setHasAnimated(true); // Animate only once
+                    }
+                });
+            },
+            { threshold: 0.3 } // triggers when 30% of section is visible
+        );
+
+        if (textRef.current && imageRef.current) {
+            observer.observe(textRef.current);
+            observer.observe(imageRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, [hasAnimated]);
+
+
+
+    //INSURANCE SECTION ANIMATION
+    // Section-specific ref & state
+    const insuranceListRef = useRef();
+    const [insuranceListAnimate, setInsuranceListAnimate] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setInsuranceListAnimate(true);
+                    observer.unobserve(insuranceListRef.current); // animate only once
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        if (insuranceListRef.current) {
+            observer.observe(insuranceListRef.current);
+        }
+    }, []);
+
+    //WHYCHOOSEUS SECTION ANIMATION
+    // Section-specific ref & state
+    const benefitsRef = useRef();
+    const [animateBenefits, setAnimateBenefits] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setAnimateBenefits(true);
+                    observer.unobserve(benefitsRef.current); // animate only once
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        if (benefitsRef.current) {
+            observer.observe(benefitsRef.current);
+        }
+    }, []);
+
+    //INSURANCE PROCESS SECTION ANIMATION
+
+    // Section-specific ref & state
+    const processRef = useRef();
+    const [animateProcess, setAnimateProcess] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setAnimateProcess(true);
+                    observer.unobserve(processRef.current); // animate only once
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        if (processRef.current) {
+            observer.observe(processRef.current);
+        }
+    }, []);
+
+
     return (
         <>
             {/* HERO SECTION */}
             <section className="insu-hero">
-                <div className="insu-hero-content">
+                <div className="insu-hero-content" ref={textRef}>
                     <h1>Protecting What Matters Most</h1>
                     <p>Comprehensive insurance solutions tailored for you.</p>
                     <button className="cta-primary" onClick={handleModal}>
                         Get a Quote
                     </button>
                 </div>
-                <div className="insu-hero-image">
+                <div className="insu-hero-image" ref={imageRef}>
                     <img src="/images/insurance-hero.svg" alt="Insurance illustration" />
                 </div>
             </section>
@@ -180,28 +275,40 @@ function Insurance() {
             )}
 
             {/* INSURANCE PARTNERS SECTION */}
-           <section className="insurance-list">
-    <h2>Our Insurance Partners</h2>
+            <section className="insurance-list" ref={insuranceListRef}>
+                <h2 className={insuranceListAnimate ? "insurance-title animate-insurance-title" : "insurance-title"}>
+                    Our Insurance Partners
+                </h2>
 
-   <ul className="insurance-items">
-    {insuranceCompanies.map((company, index) => (
-        <li key={index} className="insurance-row">
-            <img src={company.img} alt={company.name} />
-            <span>{company.name}</span>
-        </li>
-    ))}
-</ul>
-
-</section>
+                <ul className="insurance-items">
+                    {insuranceCompanies.map((company, index) => (
+                        <li
+                            key={index}
+                            className={insuranceListAnimate ? "insurance-row animate-insurance-row" : "insurance-row"}
+                            style={{ transitionDelay: `${index * 0.1}s` }}
+                        >
+                            <img src={company.img} alt={company.name} />
+                            <span>{company.name}</span>
+                        </li>
+                    ))}
+                </ul>
+            </section>
 
 
             {/* WHY CHOOSE US SECTION */}
-            <section className="benefits">
-                <h2>Why Choose Us</h2>
+            <section className="benefits" ref={benefitsRef}>
+                <h2 className={animateBenefits ? "benefits-title animate-benefits-title" : "benefits-title"}>
+                    Why Choose Us
+                </h2>
+
                 <div className="benefits-grid">
                     {benefitsData.map((item, index) => (
-                        <div className="benefit-card" key={index}>
-                            <div className="icon">{item.icon}</div>  {/* render React icon here */}
+                        <div
+                            className={animateBenefits ? "benefit-card animate-benefit-card" : "benefit-card"}
+                            key={index}
+                            style={{ transitionDelay: `${index * 0.1}s` }} // stagger animation
+                        >
+                            <div className="icon">{item.icon}</div>
                             <h3>{item.title}</h3>
                             <p>{item.desc}</p>
                         </div>
@@ -211,37 +318,46 @@ function Insurance() {
 
 
             {/* INSURANCE PROCESS SECTION */}
-<section className="insurance-process">
-    <h2>How Our Insurance Process Works</h2>
+            <section className="insurance-process" ref={processRef}>
+                <h2 className={animateProcess ? "process-title animate-process-title" : "process-title"}>
+                    How Our Insurance Process Works
+                </h2>
 
-    <div className="process-steps">
-
-        <div className="process-step">
-            <div className="step-number">1</div>
-            <h3>Visit Our Hospital</h3>
-            <p>The patient visits for consultation or treatment.</p>
-        </div>
-
-        <div className="process-step">
-            <div className="step-number">2</div>
-            <h3>Submit Insurance Details</h3>
-            <p>Provide your insurance card, TPA ID, or policy number.</p>
-        </div>
-
-        <div className="process-step">
-            <div className="step-number">3</div>
-            <h3>Verification & Approval</h3>
-            <p>Our insurance desk verifies your coverage with the insurance provider.</p>
-        </div>
-
-        <div className="process-step">
-            <div className="step-number">4</div>
-            <h3>Cashless / Reimbursement</h3>
-            <p>After approval, your treatment billing is processed smoothly.</p>
-        </div>
-
-    </div>
-</section>
+                <div className="process-steps">
+                    {[
+                        {
+                            number: "1",
+                            title: "Visit Our Hospital",
+                            desc: "The patient visits for consultation or treatment.",
+                        },
+                        {
+                            number: "2",
+                            title: "Submit Insurance Details",
+                            desc: "Provide your insurance card, TPA ID, or policy number.",
+                        },
+                        {
+                            number: "3",
+                            title: "Verification & Approval",
+                            desc: "Our insurance desk verifies your coverage with the insurance provider.",
+                        },
+                        {
+                            number: "4",
+                            title: "Cashless / Reimbursement",
+                            desc: "After approval, your treatment billing is processed smoothly.",
+                        },
+                    ].map((step, index) => (
+                        <div
+                            key={index}
+                            className={animateProcess ? "process-step animate-process-step" : "process-step"}
+                            style={{ transitionDelay: `${index * 0.1}s` }} // stagger animation
+                        >
+                            <div className="step-number">{step.number}</div>
+                            <h3>{step.title}</h3>
+                            <p>{step.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
 
 
 
