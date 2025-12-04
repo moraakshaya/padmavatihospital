@@ -5,8 +5,11 @@ import DepartmentCards from "../../components/DepartmentCards/DepartmentCards";
 import HomeDoctorsSection from "../../components/HomeDoctorsSection/HomeDoctorsSection";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+
   // HERO SECTION ANIMATION
   const heroRef = useRef(null);
   const [animateHero, setAnimateHero] = useState(false);
@@ -115,8 +118,12 @@ function Home() {
               expertise, and state-of-the-art facilities.
             </p>
             <div className={`hero-buttons ${animateHero ? "slide-in-buttons" : ""}`}>
-              <button className="btn-primary">Book Appointment</button>
-              <button className="btn-secondary">Our Services</button>
+              <button
+                className="btn-primary"
+                onClick={() => navigate("/Bookappoinment")}
+              >
+                Book Appointment
+              </button>
             </div>
           </div>
         </div>
@@ -194,7 +201,10 @@ function Home() {
               </li>
             </ul>
 
-            <button className={`learn-btn ${animateCardio ? "slide-left delay-7" : ""}`}>
+            <button
+              className={`learn-btn ${animateCardio ? "slide-left delay-7" : ""}`}
+              onClick={() => navigate("/departments/cardiology")}
+            >
               Explore Cardiology →
             </button>
           </div>

@@ -5,13 +5,13 @@ import "./BlogDetails.css";
 import { blogData } from "../../data/blogData";
 
 function BlogDetails() {
-    const { id } = useParams();
-    const blog = blogData.find((item) => item.id === Number(id));
+    const { slug } = useParams();
+    const blog = blogData.find((item) => item.slug === slug);
 
     if (!blog) return <h2>Blog Not Found</h2>;
 
     const relatedPosts = blogData.filter(
-        (item) => item.category === blog.category && item.id !== blog.id
+        (item) => item.category === blog.category && item.slug !== blog.slug
     );
 
 
@@ -150,14 +150,23 @@ function BlogDetails() {
                                     <img src={blog.image} alt={blog.title} className="intro-image" />
                                 )}
 
-                                <p>{section.content}</p>
+                                {Array.isArray(section.content) ? (
+                                    <ul className="blog-list">
+                                        {section.content.map((point, index) => (
+                                            <li key={index}>{point}</li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <p>{section.content}</p>
+                                )}
+
                             </section>
                         ))}
 
                         {/* RELATED POSTS */}
                         <div className="related-posts stagger" style={{ "--d": blog.sections.length + 1 }}>
                             <h3>Related Posts</h3>
-                              {relatedPosts.length === 0 ? (
+                            {relatedPosts.length === 0 ? (
                                 <p>No related posts found.</p>
                             ) : (
                                 <div className="related-post-list">
@@ -167,9 +176,10 @@ function BlogDetails() {
                                             <h4>{post.title}</h4>
                                             <p className="related-date">{post.date}</p>
 
-                                            <HashLink to={`/blog/${post.id}`} className="read-more-btn">
+                                            <HashLink to={`/blog/${post.slug}`} className="read-more-btn">
                                                 Read More →
                                             </HashLink>
+
                                         </div>
                                     ))}
                                 </div>

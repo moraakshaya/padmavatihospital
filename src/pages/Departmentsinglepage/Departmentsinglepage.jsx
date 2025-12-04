@@ -98,7 +98,7 @@ function Departmentsinglepage() {
 
                 <div className={`about-content ${animateAbout ? "slide-right" : ""}`}>
                     <h2>About {dept.name}</h2>
-                    <p>{dept.overview}</p>
+                    <p>{dept.about}</p>
                 </div>
             </section>
 
@@ -161,6 +161,8 @@ function Departmentsinglepage() {
                             <div className="doctor-info">
                                 <h3>{doctor.name}</h3>
                                 <p className="doctor-designation">{doctor.designation}</p>
+                                <p className="doctor-qualifications">{doctor.qualifications}</p>
+                                <p className="doctor-experience">{doctor.experience}</p>
                                 <p className="doctor-about">{doctor.about}</p>
                             </div>
                         </div>
