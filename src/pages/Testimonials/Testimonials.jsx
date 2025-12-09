@@ -11,7 +11,7 @@ const testimonials = [
             "The doctors were extremely caring and supportive. The treatment was smooth and stress-free."
     },
     {
-        name: "Priya Verma",
+        name: "Priya Reddy",
         role: "Patient",
         photo: "/images/patient2.jpg",
         rating: 4,
@@ -103,7 +103,7 @@ function Testimonials() {
             key={index}
             style={{ transitionDelay: `${index * 0.15}s` }} // stagger cards
           >
-            <img src={item.photo} alt={item.name} className="patient-img" />
+            {/* <img src={item.photo} alt={item.name} className="patient-img" /> */}
             <p className="feedback">"{item.feedback}"</p>
 
             <div className="patient-info">
@@ -123,7 +123,7 @@ function Testimonials() {
         </p>
 
         <a
-          href="https://www.google.com/search?q=your+hospital+name+google+reviews"
+          href="https://share.google/vrspeyG6Xo0jwhFLi"
           target="_blank"
           rel="noopener noreferrer"
           className={`google-review-btn ${animate ? "slide-bottom" : ""}`}

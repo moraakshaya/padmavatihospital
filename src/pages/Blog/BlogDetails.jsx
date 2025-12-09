@@ -132,11 +132,12 @@ function BlogDetails() {
 
 
                 {/* MAIN CONTENT */}
+
                 <div className="blog-main">
+                    
                     <div
                         className={`blog-main-inner ${animateRight ? "slide-left" : ""}`}
-                        ref={rightContentRef}
-                    >
+                        ref={rightContentRef} >
                         {blog.sections.map((section, i) => (
                             <section
                                 key={section.id}

@@ -20,7 +20,7 @@ function Footer() {
                 {/* -------- COLUMN 1 -------- */}
                 <div className="footer-col">
                     <img
-                        src="/public/padmavathilogo.png"
+                        src="/padmavathilogo.png"
                         alt="Padmavati Medical Center"
                         className="footer-logo"
                     />

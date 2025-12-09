@@ -225,7 +225,7 @@ function Home() {
           Hear what our patients have to say about their experience
         </p>
         <a
-          href="https://www.google.com/maps/place/YourHospitalURLHere"
+          href="https://share.google/vrspeyG6Xo0jwhFLi"
           target="_blank"
           className="reviews-btn"
         >
@@ -248,7 +248,7 @@ function Home() {
               "Excellent facilities and caring doctors. My father's surgery was successful
               thanks to Dr. Prashanth Kumar's expertise. Highly recommended!"
             </p>
-            <h4 className="testimonial-name">Priya Sharma</h4>
+            <h4 className="testimonial-name">Priya Reddy</h4>
           </div>
 
           <div className="testimonial-card">

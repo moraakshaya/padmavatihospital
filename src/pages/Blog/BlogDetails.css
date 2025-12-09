@@ -317,22 +317,19 @@ CSS ANIMATION CODE
 
 
 
-
-/* Base hidden state */
-.sidebar-inner .stagger,
-.blog-main-inner .stagger {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+.blog-top-image {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-/* When parent container animates */
-.slide-left .stagger {
-  opacity: 1;
-  transform: translateX(0);
+.blog-top-image img {
+  width: 100%;
+  max-height: 400px; /* adjust height as needed */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Stagger effect using delay */
-.stagger {
-  transition-delay: calc(var(--d) * 0.15s);
-}
+
+

@@ -6,7 +6,7 @@ export const blogData = [
   title: "Understanding Heart Health Tips",
   date: "12 Nov 2024",
   category: "Heart",
-  image: "/images/blog1.jpg",
+  image: "/blog/hearthealthy.webp",
   description:
     "Learn how to maintain a healthy heart with simple daily habits and lifestyle adjustments.",
   sections: [
@@ -73,7 +73,7 @@ export const blogData = [
   title: "Common Heart Problems and Warning Signs",
   date: "05 Oct 2024",
   category: "Heart",
-  image: "/images/blog2.jpg",
+  image: "/blog/commonheartproblems.png",
   description:
     "Recognizing early warning signs of heart issues can save lives. Know what to look for.",
   sections: [
@@ -130,7 +130,7 @@ export const blogData = [
   title: "How to Manage Stress Effectively",
   date: "20 Sep 2024",
   category: "Mental Health",
-  image: "/images/blog3.jpg",
+  image: "/blog/stressmanagment.jpg",
   description:
     "Stress affects both mental and physical health. Explore effective ways to control and reduce stress.",
   sections: [
@@ -191,7 +191,7 @@ export const blogData = [
   title: "Building Emotional Resilience",
   date: "10 Sep 2024",
   category: "Mental Health",
-  image: "/images/blog4.jpg",
+  image:"/blog/emotionalrel.webp",
   description:
     "Learn how to strengthen your emotional resilience to handle everyday stressors better.",
   sections: [
@@ -251,7 +251,7 @@ export const blogData = [
   title: "Top Immunity-Boosting Foods",
   date: "15 Aug 2024",
   category: "Nutrition",
-  image: "/images/blog5.jpg",
+  image: "/blog/immunity.jpg",
   description:
     "Discover immunity-boosting foods that help protect your body from infections and diseases.",
   sections: [
@@ -309,7 +309,7 @@ export const blogData = [
   title: "Healthy Eating for Energy and Vitality",
   date: "30 Jul 2024",
   category: "Nutrition",
-  image: "/images/blog6.jpg",
+  image:"/blog/healthyeating.webp",
   description:
     "Learn how to plan meals that boost your energy and support overall health.",
   sections: [

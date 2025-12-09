@@ -1,5 +1,10 @@
 /* MAIN FOOTER */
 .pmc-footer {
+    position: relative;
+    overflow: hidden;
+}
+
+.pmc-footer {
     background-color: #425c86;
     color: #ebeae7;
     padding: 50px 20px 20px;

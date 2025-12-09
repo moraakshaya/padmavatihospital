@@ -178,7 +178,7 @@ function Insurance() {
                     </button>
                 </div>
                 <div className="insu-hero-image" ref={imageRef}>
-                    <img src="/images/insurance-hero.svg" alt="Insurance illustration" />
+                    <img src="/insurance/insurance.png" alt="Insurance illustration" />
                 </div>
             </section>
 

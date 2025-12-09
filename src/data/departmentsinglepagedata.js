@@ -6,7 +6,7 @@ const departmentsData = [
   id: 1,
   name: "Cardiology",
   slug: "cardiology",
-  image: "/images/departments/cardiology.jpg",
+  image: "/departments/cardiology.webp",
 
   overview:
     "The Cardiology Department is the flagship department of our hospital, providing world-class cardiac care, advanced diagnostics, and comprehensive treatment for all heart-related conditions. Our team of expert cardiologists specializes in preventive cardiology, interventional procedures, and long-term heart disease management.",
@@ -93,7 +93,7 @@ const departmentsData = [
     id: 2,
     name: "General Medicine",
     slug: "general-medicine",
-    image: "/images/departments/general-medicine.jpg",
+    image: "/departments/generalmedicine.png",
 
     overview:
       "Our General Medicine Department offers comprehensive adult healthcare with accurate diagnosis, preventive care, and expert treatment for acute and chronic conditions, ensuring high-quality and trusted hospital care.",
@@ -183,7 +183,7 @@ const departmentsData = [
     id: 3,
     name: "Diabetology",
     slug: "diabetology",
-    image: "/images/departments/diabetology.jpg",
+    image: "/departments/diabetology.png",
 
     overview:
       "Our Diabetology Department provides specialized care for all types of diabetes and metabolic disorders, offering precise diagnosis, personalized treatment plans, and long-term lifestyle management to help patients maintain stable health and prevent complications.",
@@ -276,7 +276,7 @@ const departmentsData = [
     id: 4,
     name: "Gastroenterology",
     slug: "gastroenterology",
-    image: "/images/departments/gastroenterology.jpg",
+    image: "/departments/gastroenterology.png",
 
     overview:
       "Our Gastroenterology Department provides expert diagnosis and treatment for stomach, liver, pancreas, and digestive system disorders, offering advanced endoscopic care and comprehensive gastrointestinal treatment.",
@@ -358,7 +358,7 @@ const departmentsData = [
     id: 5,
     name: "Pediatrics",
     slug: "pediatrics",
-    image: "/images/departments/pediatrics.jpg",
+    image: "/departments/pediatric.png",
 
     overview:
       "Our Pediatrics Department provides compassionate medical care for infants, children, and adolescents with expert diagnosis, growth monitoring, immunizations, and treatment for childhood illnesses.",
@@ -436,7 +436,7 @@ const departmentsData = [
     id: 6,
     name: "Neurology",
     slug: "neurology",
-    image: "/images/departments/neurology.jpg",
+    image: "/departments/neurology.jpg",
 
     overview:
       "Our Neurology Department provides advanced diagnosis and treatment for brain, spine, and nerve disorders with expert neurologists and modern technology.",
@@ -514,7 +514,7 @@ const departmentsData = [
     id: 7,
     name: "Pulmonology",
     slug: "pulmonology",
-    image: "/images/departments/pulmonology.jpg",
+    image: "/departments/pulmonology.webp",
 
     overview:
       "Our Pulmonology Department offers specialized care for lung and respiratory disorders, providing accurate diagnosis, advanced treatment, and long-term management to ensure optimal respiratory health.",
@@ -590,7 +590,7 @@ const departmentsData = [
     id: 8,
     name: "Orthopedics",
     slug: "orthopedics",
-    image: "/images/departments/orthopedics.jpg",
+    image: "/departments/orthopedics.webp",
 
     overview:
       "Our Orthopedics Department offers expert treatment for bone, joint, and spine conditions, providing advanced fracture care, joint pain management, and orthopedic surgeries.",
@@ -670,7 +670,7 @@ const departmentsData = [
     id: 9,
     name: "Nephrology",
     slug: "nephrology",
-    image: "/images/departments/nephrology.jpg",
+    image: "/departments/nephrology.png",
 
     overview:
       "Our Nephrology Department provides specialized care for kidney health, including diagnosis, treatment, and management of acute and chronic kidney diseases, ensuring trusted and comprehensive renal care.",
@@ -756,7 +756,7 @@ const departmentsData = [
     id: 10,
     name: "General Surgery",
     slug: "general-surgery",
-    image: "/images/departments/general-surgery.jpg",
+    image: "/departments/generalsurgery.jpg",
 
     overview:
       "Our General Surgery Department provides expert surgical care, including emergency, elective, and minimally invasive procedures, ensuring precise treatment and optimal patient outcomes.",
@@ -832,7 +832,7 @@ const departmentsData = [
     id: 11,
     name: "Anesthesiology",
     slug: "anesthesiology",
-    image: "/images/departments/anesthesiology.jpg",
+    image: "/departments/anesthesiology.jpg",
 
     overview:
       "Our Anesthesiology Department provides expert anesthesia care for surgeries and critical care, ensuring patient safety, comfort, and precise pain management throughout procedures.",
@@ -907,7 +907,7 @@ const departmentsData = [
     id: 12,
     name: "Pathology",
     slug: "pathology",
-    image: "/images/departments/pathology.jpg",
+    image: "/departments/pathology.webp",
 
     overview:
       "Our Pathology Department provides comprehensive diagnostic services with precise testing for early disease detection, accurate treatment planning, and reliable lab support, ensuring high-quality healthcare.",
@@ -983,7 +983,7 @@ const departmentsData = [
     id: 13,
     name: "Urology",
     slug: "urology",
-    image: "/images/departments/urology.jpg",
+    image: "/departments/urology.jpg",
 
     overview:
       "Our Urology Department provides comprehensive care for urinary tract and male reproductive system disorders, offering both surgical and non-surgical treatments with expert urologists and advanced technology.",
@@ -1056,7 +1056,7 @@ const departmentsData = [
     id: 14,
     name: "Dermatology",
     slug: "dermatology",
-    image: "/images/departments/dermatology.jpg",
+    image: "/departments/dermatology.jpg",
 
     overview:
       "Our Dermatology Department provides expert medical care for skin, hair, and nail conditions, offering advanced treatments and personalized solutions for patients of all ages.",
@@ -1135,7 +1135,7 @@ const departmentsData = [
     id: 15,
     name: "Physiotherapy",
     slug: "physiotherapy",
-    image: "/images/departments/physiotherapy.jpg",
+    image: "/departments/physiotherapy.jpg",
 
     overview:
       "Our Physiotherapy Department provides expert rehabilitation and therapeutic care for injury recovery, mobility improvement, and pain management using advanced techniques and personalized treatment plans.",

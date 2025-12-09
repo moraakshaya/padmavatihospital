@@ -3,7 +3,7 @@
   border-radius: 14px;
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   border: 1px solid #eef0f4;
   transition: 0.3s;
 }
@@ -76,8 +76,8 @@
 .availability {
   font-size: 14px;
   font-weight: 500;
-    color: #548894;
+  color: #548894;
   background: #f6e5c7;
-    padding: 4px 10px;
+  padding: 4px 10px;
   border-radius: 8px;
 }
