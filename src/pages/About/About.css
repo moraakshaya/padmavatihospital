@@ -157,7 +157,7 @@
 }
 
 .vm-box {
-  background: #fff;
+  background: #f5f5f5;
   padding: 20px 15px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -173,9 +173,14 @@
   margin-bottom: 12px;
 }
 
-.vm-box p,
-.vm-box ul li {
+.vm-box p {
   font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.vm-box ul li {
+  font-size: 16px;
   color: #555;
   line-height: 1.6;
 }
@@ -265,7 +270,7 @@
 
 .leadership-content p,
 .leadership-content ul li {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.8;
   color: #555;
   margin-bottom: 12px;
@@ -336,7 +341,7 @@
 }
 
 .quality-healthcare-section p {
-  font-size: 16px;
+  font-size: 17px;
   color: #555;
   line-height: 1.7;
   margin-bottom: 15px;
