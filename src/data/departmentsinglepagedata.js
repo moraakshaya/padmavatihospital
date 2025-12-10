@@ -1,4 +1,5 @@
 import { FiUserCheck, FiActivity, FiStar, FiLayers, FiHeart, FiCpu, FiAward, FiSmile, FiShield, FiPocket } from "react-icons/fi";
+import dr1 from "../assets/doctors/dr1.png";
 
 const departmentsData = [
   // 1. Cardiology (already done)
@@ -46,7 +47,7 @@ const departmentsData = [
       qualifications: ["M.D.", "D.M.", "FSCAI", "M.E."],
       status: "On-call available",
       experience: "20+ years",
-      photo: "/images/doctors/rahul.jpg"
+      img: dr1,
     },
     {
       name: "Dr. G. Kiran Kumar",
@@ -56,7 +57,7 @@ const departmentsData = [
       qualifications: ["M.D.", "D.M."],
       status: "On-call available",
       experience: "15+ years",
-      photo: "/images/doctors/priya.jpg"
+      img: dr1,
     }
   ],
 
@@ -136,7 +137,7 @@ const departmentsData = [
         qualifications: ["M.D.", "D.C.H."],
         status: "On-call available",
         experience: "20+ years",
-        photo: "/images/doctors/prahlad.jpg"
+        img: dr1,
       },
       {
         name: "Dr. (Prof) S. Prem Sagar",
@@ -146,7 +147,7 @@ const departmentsData = [
         qualifications: ["M.D."],
         status: "On-call available",
         experience: "18+ years",
-        photo: "/images/doctors/premsagar.jpg"
+        img: dr1,
       }
     ],
 
@@ -229,7 +230,7 @@ const departmentsData = [
         qualifications: ["M.D.", "D.C.H."],
         status: "On-call available",
         experience: "20+ years",
-        photo: "/images/doctors/prahlad.jpg"
+        img: dr1,
       },
       {
         name: "Dr. (Prof) S. Prem Sagar",
@@ -239,7 +240,7 @@ const departmentsData = [
         qualifications: ["M.D."],
         status: "On-call available",
         experience: "18+ years",
-        photo: "/images/doctors/premsagar.jpg"
+        img: dr1,
       }
     ],
 
@@ -320,7 +321,7 @@ const departmentsData = [
         qualifications: ["D.N.B.", "D.N.B."],
         status: "Available",
         experience: "15+ years",
-        photo: "/images/doctors/sameer-kumar.jpg"
+        img: dr1,
       }
     ],
 
@@ -399,7 +400,7 @@ const departmentsData = [
         qualifications: ["M.D.", "D.C.H.", "D.N.B."],
         status: "Available",
         experience: "20+ years",
-        photo: "/images/doctors/murali.jpg"
+        img: dr1,
       }
     ],
 
@@ -477,7 +478,7 @@ const departmentsData = [
         qualifications: ["M.D.", "D.M."],
         status: "On-call available",
         experience: "12+ years",
-        photo: "/images/doctors/dinesh-kumar.jpg" // update to actual image name
+        img: dr1,
       }
     ],
 
@@ -553,7 +554,7 @@ const departmentsData = [
         qualifications: ["M.D."],
         status: "Available",
         experience: "15+ years",
-        photo: "/images/doctors/mahesh-gudelli.jpg"
+        img: dr1,
       }
     ],
 
@@ -631,7 +632,7 @@ const departmentsData = [
         qualifications: ["M.S."],
         status: "Available",
         experience: "12+ years",
-        photo: "/images/doctors/vinyak-santosh.jpg" // update based on your actual image name
+        img: dr1,
       }
 
     ],
@@ -709,7 +710,7 @@ const departmentsData = [
         qualifications: ["M.D.", "D.M."],
         status: "On-call available",
         experience: "15+ years",
-        photo: "/images/doctors/sudhakar.jpg"
+        img: dr1,
       },
       {
         name: "Dr. K. Praveen",
@@ -719,7 +720,7 @@ const departmentsData = [
         qualifications: ["M.D.", "D.M.", "SGPGI"],
         status: "On-call available",
         experience: "12+ years",
-        photo: "/images/doctors/praveen.jpg"
+       img: dr1,
       }
     ],
 
@@ -795,7 +796,7 @@ const departmentsData = [
         qualifications: ["M.S."],
         status: "On-call available",
         experience: "15+ years",
-        photo: "/images/doctors/prashanth.jpg"
+        img: dr1,
       }
     ],
 
@@ -870,7 +871,7 @@ const departmentsData = [
         qualifications: ["MBBS", "D.A."],
         status: "On-call available",
         experience: "15+ years",
-        photo: "/images/doctors/arjun-kumar.jpg"
+        img: dr1,
       }
     ],
 
@@ -946,7 +947,7 @@ const departmentsData = [
         qualifications: ["M.D."],
         status: "On-call available",
         experience: "12+ years",
-        photo: "/images/doctors/beeshma.jpg"
+        img: dr1,
       }
     ],
 
@@ -1023,7 +1024,7 @@ const departmentsData = [
         qualifications: ["M.S.", "M.Ch."],
         status: "On-call available",
         experience: "15+ years",
-        photo: "/images/doctors/ashok-kumar.jpg"
+        img: dr1,
       }
     ],
 
@@ -1097,7 +1098,7 @@ const departmentsData = [
         qualifications: ["M.D. Dermatology"],
         status: "Available",
         experience: "12+ years",
-        photo: "/images/doctors/purnaiah.jpg"
+       img: dr1,
       }
     ],
 
@@ -1174,7 +1175,7 @@ const departmentsData = [
         qualifications: ["B.P.T.", "M.I.A.P."],
         status: "Available",
         experience: "10+ years",
-        photo: "/images/doctors/sunil.jpg"
+        img: dr1,
       }
     ],
 

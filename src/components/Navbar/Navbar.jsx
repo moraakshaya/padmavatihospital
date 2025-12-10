@@ -143,10 +143,18 @@ function Navbar() {
             </span>
 
             <ul className={moreDropdownOpen ? "mobile-submenu show" : "mobile-submenu"}>
-              <li><Link to="/gallery">Gallery</Link></li>
-              <li><Link to="/Insurance">Insurance</Link></li>
-              <li><Link to="/Blog">Blogs</Link></li>
-              <li><Link to="/Testimonials">Testimonials</Link></li>
+              <li>
+                <Link to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
+              </li>
+              <li>
+                <Link to="/Insurance" onClick={() => setMenuOpen(false)}>Insurance</Link>
+              </li>
+              <li>
+                <Link to="/Blog" onClick={() => setMenuOpen(false)}>Blogs</Link>
+              </li>
+              <li>
+                <Link to="/Testimonials" onClick={() => setMenuOpen(false)}>Testimonials</Link>
+              </li>
             </ul>
           </li>
 

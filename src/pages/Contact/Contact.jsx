@@ -4,6 +4,32 @@ import { FaPhoneAlt, FaEnvelope, FaClock } from "react-icons/fa";
 
 function Contact() {
 
+  // WEB3FORMS LOGIC
+  const [result, setResult] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setResult("Sending...");
+
+    const formData = new FormData(e.target);
+    formData.append("access_key", "YOUR_ACCESS_KEY_HERE"); // ← replace with your key
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Message Sent Successfully!");
+      e.target.reset();
+    } else {
+      setResult("Something went wrong!");
+    }
+  };
+
+
   // CONTACT HERO ANIMATION
   const contactHeroRef = useRef(null);
   const [contactHeroVisible, setContactHeroVisible] = useState(false);
@@ -161,23 +187,26 @@ function Contact() {
           >
             <h2>Send Us a Message</h2>
 
-            <form>
+            <form onSubmit={handleSubmit}>
               <label>Full Name *</label>
-              <input type="text" placeholder="John Doe" />
+              <input type="text" name="name" placeholder="John Doe" required />
 
               <label>Email Address *</label>
-              <input type="email" placeholder="john@example.com" />
+              <input type="email" name="email" placeholder="john@example.com" required />
 
               <label>Phone Number *</label>
-              <input type="text" placeholder="+91 123 456 7890" />
+              <input type="text" name="phone" placeholder="+91 123 456 7890" required />
 
               <label>Subject *</label>
-              <input type="text" placeholder="How can we help?" />
+              <input type="text" name="subject" placeholder="How can we help?" required />
 
               <label>Message *</label>
-              <textarea placeholder="Tell us more about your inquiry..."></textarea>
+              <textarea name="message" placeholder="Tell us more about your inquiry..." required></textarea>
 
               <button type="submit" className="send-btn">Send Message</button>
+
+              <p className="form-result">{result}</p>
+
             </form>
           </div>
 

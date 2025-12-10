@@ -109,6 +109,7 @@ function Doctors() {
                   name={doctor.name}
                   department={doctor.department}
                   qualification={doctor.qualification}
+                  regNo={doctor.regNo}
                   phone={doctor.phone}
                   availability={doctor.availability}
                 />
@@ -186,6 +187,7 @@ function Doctors() {
                 name={doctor.name}
                 department={doctor.department}
                 qualification={doctor.qualification}
+                regNo={doctor.regNo}
                 phone={doctor.phone}
                 availability={doctor.availability}
               />

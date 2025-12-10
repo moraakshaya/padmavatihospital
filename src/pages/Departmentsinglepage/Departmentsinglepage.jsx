@@ -156,7 +156,7 @@ function Departmentsinglepage() {
                             className={`doctor-highlight-card ${animateDoctors ? `card-animate card-${index}` : ""}`}
                         >
                             <div className="doctor-img">
-                                <img src={doctor.photo} alt={doctor.name} />
+                                <img src={doctor.img} alt={doctor.name} />
                             </div>
                             <div className="doctor-info">
                                 <h3>{doctor.name}</h3>

@@ -94,7 +94,7 @@ function HomeDoctorsSection() {
         {doctors.map((doctor) => (
           <DoctorsCards
             key={doctor.id}
-            image={doctor.img}
+            image={doctor.image}
             name={doctor.name}
             department={doctor.department}
             qualification={doctor.qualification}

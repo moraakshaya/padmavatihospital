@@ -389,3 +389,50 @@ CSS ANIMATIONS SECTION CODE
   transform: translateX(0);
 }
 
+
+
+
+
+
+
+.form-result {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 14px;
+  border-radius: 6px;
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+  opacity: 0;
+  transform: translateY(5px);
+}
+
+.form-result:not(:empty) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Success state */
+.form-result:contains("Successfully") {
+  background-color: #e6ffed;
+  color: #0a8a43;
+  border: 1px solid #0a8a43;
+}
+
+/* Error state */
+.form-result:contains("wrong") {
+  background-color: #ffe6e6;
+  color: #b30000;
+  border: 1px solid #b30000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
