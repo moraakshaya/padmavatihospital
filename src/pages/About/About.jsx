@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FaHeart, FaAward, FaShieldAlt, FaUsers } from "react-icons/fa";
 import "./About.css";
+import dr1 from "../../assets/doctors/dr1.png";
 
 
 function About() {
@@ -235,7 +236,7 @@ function About() {
 
           {/* RIGHT IMAGE */}
           <div className={`leadership-image ${leadershipVisible ? "slide-in-right" : ""}`}>
-            <img src="/images/doctor.jpg" alt="Dr. G. Kondal Rao" />
+            <img src={dr1} alt="Dr. G. Kondal Rao" />
           </div>
         </div>
       </section>

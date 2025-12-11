@@ -17,18 +17,20 @@ const galleryData = [
   { id: 10, category: "infrastructure", img: "/gallery/gallery8.webp" },
   { id: 11, category: "infrastructure", img: "/gallery/gallery9.webp" },
 
+
+
   // Doctors at Work
-  // { id: 5, category: "doctors", img: "/images/gallery/d1.jpg" },
-  // { id: 6, category: "doctors", img: "/images/gallery/d2.jpg" },
+  { id: 12, category: "doctors", img: "/gallery/gallery10.webp" },
 
   // Events 
-  //  { id: 7, category: "events", img: "/images/gallery/e1.jpg" },
-  // { id: 8, category: "events", img: "/images/gallery/e2.jpg" },
-  // { id: 9, category: "events", img: "/images/gallery/e3.jpg" },
+
 ];
 
 function Gallery() {
   const [selectedFilter, setSelectedFilter] = useState("all");
+
+  const [selectedImage, setSelectedImage] = useState(null);
+
 
   const filteredImages =
     selectedFilter === "all"
@@ -109,13 +111,28 @@ function Gallery() {
         <div ref={rightRef} className={`gallery-right ${animateRight ? "slide-in-bottom" : ""}`}>
           <div className="gallery-grid">
             {filteredImages.map((img) => (
-              <div className="gallery-card" key={img.id}>
+              <div
+                className="gallery-card"
+                key={img.id}
+                onClick={() => setSelectedImage(img.img)}
+              >
                 <img src={img.img} alt="" />
               </div>
             ))}
+
           </div>
         </div>
       </section>
+
+      {/* IMAGE POPUP MODAL */}
+      {selectedImage && (
+        <div className="image-modal" onClick={() => setSelectedImage(null)}>
+          <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
+            <img src={selectedImage} alt="full" />
+            <button className="gall-close-btn" onClick={() => setSelectedImage(null)}>×</button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

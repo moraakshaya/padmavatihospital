@@ -237,7 +237,7 @@
 .leadership-image {
   flex: 1;
   min-width: 300px;
-  max-width: 480px;
+  max-width: 400px;
   opacity: 0;
   transform: translateX(50px);
   transition: all 0.8s ease-out;
