@@ -107,25 +107,14 @@ function Home() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="hero-section" ref={heroRef}>
-        <div className="hero-overlay">
-          <div className={`hero-content ${animateHero ? "slide-in" : ""}`}>
-            <h1>
-              Your Health, Our <span>Priority</span>
-            </h1>
-            <p>
-              Providing exceptional healthcare services with compassion,
-              expertise, and state-of-the-art facilities.
-            </p>
-            <div className={`hero-buttons ${animateHero ? "slide-in-buttons" : ""}`}>
-              <button
-                className="btn-primary"
-                onClick={() => navigate("/Bookappoinment")}
-              >
-                Book Appointment
-              </button>
-            </div>
-          </div>
+      <section className="home-hero">
+        <img src="../Untitled-2.webp" alt="Hospital" className="home-hero-bg" />
+        <div className="home-hero-overlay"></div>
+
+        <div className="home-hero-content">
+          <h1>Your Health, Our Priority</h1>
+          <p>World-class treatments with expert doctors and modern facilities.</p>
+          <button className="home-hero-btn">Book Appointment</button>
         </div>
       </section>
 
