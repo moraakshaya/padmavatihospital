@@ -10,6 +10,42 @@ import {
 
 function Insurance() {
 
+    // WEB3FORMS LOGIC
+    const [result, setResult] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setResult("Sending...");
+
+        const formDataToSend = new FormData(e.target);
+        formDataToSend.append("access_key", "YOUR_ACCESS_KEY_HERE"); // replace with your key
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formDataToSend
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            setResult("Quote Request Sent Successfully!");
+            e.target.reset();
+            setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                insuranceType: "",
+                startDate: "",
+                coverageAmount: "",
+                notes: ""
+            });
+            setShowModal(false);
+        } else {
+            setResult("Something went wrong!");
+        }
+    };
+
+
     // WHY CHOOSE US DATA
     const benefitsData = [
         { icon: <FaHeadset />, title: "24/7 Support", desc: "We are always here to assist you." },
@@ -54,22 +90,7 @@ function Insurance() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    // Handle form submission
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        alert(`Quote requested for ${formData.name}`);
-        setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            insuranceType: "",
-            startDate: "",
-            coverageAmount: "",
-            notes: ""
-        });
-        setShowModal(false);
-    };
-
+    
 
     //HERO SECTION ANIMATION
     const sectionRef = useRef(null);
@@ -191,85 +212,76 @@ function Insurance() {
                             <div className="form-group">
                                 <input
                                     type="text"
-                                    name="name"
+                                    name="Full Name"
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
                                 />
                                 <label>Name</label>
                             </div>
+
                             <div className="form-group">
                                 <input
                                     type="email"
-                                    name="email"
+                                    name="Email"
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
                                 />
                                 <label>Email</label>
                             </div>
+
                             <div className="form-group">
                                 <input
                                     type="tel"
-                                    name="phone"
+                                    name="Phone Number"
                                     value={formData.phone}
                                     onChange={handleChange}
                                     required
                                 />
                                 <label>Phone Number</label>
                             </div>
-                            {/* <div className="form-group">
-                                <select
-                                    name="insuranceType"
-                                    value={formData.insuranceType}
-                                    onChange={handleChange}
-                                    required
-                                >
-                                    <option value="" disabled>
-                                        Select Insurance Type
-                                    </option>
-                                    <option value="Health Insurance">Health Insurance</option>
-                                    <option value="Life Insurance">Life Insurance</option>
-                                    <option value="Car Insurance">Car Insurance</option>
-                                    <option value="Home Insurance">Home Insurance</option>
-                                </select>
-                                <label>Insurance Type</label>
-                            </div> */}
+
                             <div className="form-group">
                                 <input
                                     type="date"
-                                    name="startDate"
+                                    name="Policy Start Date"
                                     value={formData.startDate}
                                     onChange={handleChange}
                                 />
                                 <label>Policy Start Date</label>
                             </div>
+
                             <div className="form-group">
                                 <input
                                     type="number"
-                                    name="coverageAmount"
+                                    name="Coverage Amount"
                                     value={formData.coverageAmount}
                                     onChange={handleChange}
-                                    placeholder=""
                                 />
                                 <label>Coverage Amount</label>
                             </div>
+
                             <div className="form-group">
                                 <textarea
-                                    name="notes"
+                                    name="Notes"
                                     value={formData.notes}
                                     onChange={handleChange}
-                                    placeholder=""
                                 ></textarea>
                                 <label>Additional Notes</label>
                             </div>
+
                             <button type="submit" className="submit-btn">
                                 Submit
                             </button>
+
                             <button type="button" className="close-btn" onClick={handleModal}>
                                 Close
                             </button>
+
+                            <p className="form-status">{result}</p>
                         </form>
+
                     </div>
                 </div>
             )}

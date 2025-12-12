@@ -29,6 +29,32 @@ function Bookappoinment() {
         };
     }, []);
 
+    // WEB3FORMS LOGIC
+    const [result, setResult] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setResult("Sending...");
+
+        const formData = new FormData(e.target);
+        formData.append("access_key", "YOUR_ACCESS_KEY_HERE"); // replace with your key
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData,
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            setResult("Appointment Booked Successfully!");
+            e.target.reset();
+        } else {
+            setResult("Something went wrong!");
+        }
+    };
+
+
     // CONTENT AND FORM SECTION ANIMATION
 
     const sectionRef = useRef(null);
@@ -126,11 +152,14 @@ function Bookappoinment() {
                     {/* ---------- RIGHT FORM SECTION ---------- */}
                     <div className={`ba-right ${formVisible ? "slide-in-right" : ""}`}>
                         <h2>Book an Appointment</h2>
-                        <form className="ba-form">
-                            <input type="text" placeholder="Full Name" required />
-                            <input type="tel" placeholder="Phone Number" required />
-                            <input type="email" placeholder="Email Address" required />
-                            <select required>
+                        <form className="ba-form" onSubmit={handleSubmit}>
+                            <input type="text" name="Full Name" placeholder="Full Name" required />
+
+                            <input type="tel" name="Phone Number" placeholder="Phone Number" required />
+
+                            <input type="email" name="Email" placeholder="Email Address" required />
+
+                            <select name="Department" required>
                                 <option value="">Select Department</option>
                                 <option>Cardiologist</option>
                                 <option>Sr General Physician & Diabetologist</option>
@@ -147,10 +176,20 @@ function Bookappoinment() {
                                 <option>Dermatologist</option>
                                 <option>Physiotherapist</option>
                             </select>
-                            <input type="date" required />
-                            <textarea placeholder="Describe symptoms (optional)" rows="4"></textarea>
+
+                            <input type="date" name="Preferred Date" required />
+
+                            <textarea
+                                name="Symptoms"
+                                placeholder="Describe symptoms (optional)"
+                                rows="4"
+                            ></textarea>
+
                             <button type="submit">Confirm Appointment</button>
                         </form>
+
+                        <p className="form-status">{result}</p>
+
                     </div>
 
                 </div>

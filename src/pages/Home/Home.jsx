@@ -108,7 +108,7 @@ function Home() {
     <>
       {/* HERO SECTION */}
       <section className="home-hero">
-        <img src="../Untitled-2.webp" alt="Hospital" className="home-hero-bg" />
+        <img src="../h1.jpg" alt="Hospital" className="home-hero-bg" />
         <div className="home-hero-overlay"></div>
 
         <div className="home-hero-content">

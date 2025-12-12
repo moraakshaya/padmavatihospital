@@ -12,7 +12,6 @@ function Contact() {
     setResult("Sending...");
 
     const formData = new FormData(e.target);
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE"); // ← replace with your key
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -28,6 +27,7 @@ function Contact() {
       setResult("Something went wrong!");
     }
   };
+
 
 
   // CONTACT HERO ANIMATION
@@ -188,26 +188,26 @@ function Contact() {
             <h2>Send Us a Message</h2>
 
             <form onSubmit={handleSubmit}>
+              <input type="hidden" name="access_key" value="1d0ce4c1-4a40-4c7f-b051-04816f638ced" />
+
               <label>Full Name *</label>
-              <input type="text" name="name" placeholder="John Doe" required />
+              <input name="name" type="text" placeholder="John Doe" required />
 
               <label>Email Address *</label>
-              <input type="email" name="email" placeholder="john@example.com" required />
+              <input name="email" type="email" placeholder="john@example.com" required />
 
               <label>Phone Number *</label>
-              <input type="text" name="phone" placeholder="+91 123 456 7890" required />
+              <input name="phone" type="text" placeholder="+91 123 456 7890" required />
 
               <label>Subject *</label>
-              <input type="text" name="subject" placeholder="How can we help?" required />
+              <input name="subject" type="text" placeholder="How can we help?" required />
 
               <label>Message *</label>
               <textarea name="message" placeholder="Tell us more about your inquiry..." required></textarea>
 
               <button type="submit" className="send-btn">Send Message</button>
-
-              <p className="form-result">{result}</p>
-
             </form>
+
           </div>
 
           {/* -------- RIGHT SIDE : ADDRESS + MAP -------- */}

@@ -7,16 +7,17 @@
   align-items: center;
   padding-left: 5%;
   overflow: hidden;
+  /* border: 4px solid black; */
 }
 
 /* DESKTOP IMAGE BEHAVIOR */
 .home-hero-bg {
   position: absolute;
-  top: 0;
+  top: -50px;
   left: 0;
   width: 100%;
   height: 100vh;
-  object-fit: cover;        /* cover for desktop */
+  object-fit: contain;        /* cover for desktop */
   object-position: center;
   z-index: 1;
 }
@@ -78,6 +79,7 @@
   }
 
   .home-hero-bg {
+    top: 0;
     height: 40vh;          /* reduce height for mobile */
     object-fit: cover !important;  /* show full image */
     background-color: #000; 
