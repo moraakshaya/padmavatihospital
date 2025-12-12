@@ -1,4 +1,6 @@
-/* ---------------------- HERO SECTION ---------------------- */
+/* =========================================================
+   HERO SECTION
+========================================================= */
 .about-hero {
   background: linear-gradient(135deg, #425c86, #c4585f);
   width: 100%;
@@ -21,7 +23,7 @@
   opacity: 0.9;
 }
 
-/* HERO ANIMATION */
+/* Hero Animation */
 .about-hero .about-hero-title,
 .about-hero .about-hero-subtitle {
   opacity: 0;
@@ -35,14 +37,19 @@
   transform: translateX(0);
 }
 
-/* ---------------------- SECTION SPACING ---------------------- */
-.about-section,
+
+/* =========================================================
+   GENERAL SECTION SPACING
+========================================================= */
+.about-details-section,
 .values-section,
-.stats-section {
-  padding: 30px 40px 60px;
+.stats-section,
+.quality-healthcare-section,
+.leadership-section {
+  padding: 30px 40px 30px;
 }
 
-.section-title {
+/* .section-title {
   font-size: 36px;
   text-align: center;
   color: #425c86;
@@ -51,20 +58,22 @@
 }
 
 .section-text {
-  font-size: 18px;
+  font-size: 16x;
   color: #555;
   max-width: 900px;
   margin: auto;
   text-align: start;
   line-height: 1.6;
-}
+} */
 
 
-/* ABOUT DETAILS SECTION */
+/* =========================================================
+   ABOUT DETAILS SECTION
+========================================================= */
 .about-details-section {
-  padding: 40px 40px;
+  /* padding: 40px 40px; */
   overflow-x: hidden;
-  margin-top: 40px;
+  /* border: 4px solid black; */
 }
 
 .about-details-container {
@@ -77,14 +86,14 @@
 .about-image {
   flex: 1;
   min-width: 380px;
-  max-width: 490px; /* limit container max size */
+  max-width: 490px;
 }
 
 .about-image img {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .about-content {
@@ -93,16 +102,18 @@
 }
 
 .about-content h2 {
-  /* font-size: 36px;
-  margin-bottom: 20px;
-  color: #333; */
+  font-size: 36px;
+  margin-bottom: 25px;
+  color: #425c86;
+  font-weight: 700;
 }
 
 .about-content p {
   font-size: 16px;
   line-height: 1.8;
-  margin-bottom: 15px;
+  margin-bottom: 6px;
   color: #555;
+  text-align: start;
 }
 
 /* About Details Animation */
@@ -124,35 +135,45 @@
 }
 
 
-/* Responsive */
+/* =========================================================
+   RESPONSIVE (TABLET + MOBILE)
+========================================================= */
 @media (max-width: 768px) {
   .about-details-section {
-  padding: 40px 20px 20px; 
-  margin-top: 10px;
+    padding: 20px;
   }
 
   .about-details-container {
     flex-direction: column;
     gap: 20px;
   }
-  .about-image, .about-content {
+
+  .about-image,
+  .about-content {
     min-width: 100%;
   }
 
+  .about-content h2 {
+    font-size: 26px;
+    margin-bottom: 10px !important;
+  }
+
   .about-content p {
+    font-size: 16px !important;
     margin-bottom: 10px;
   }
 }
 
 
-
-/* Vision & Mission below content (right side) */
+/* =========================================================
+   VISION & MISSION (SIDE BY SIDE)
+========================================================= */
 .vision-mission-container-right {
   display: flex;
-  flex-direction: row; /* stacked vertically */
+  flex-direction: row;
   gap: 20px;
   margin-top: 40px;
-  align-items: flex-start; /* align to left of content */
+  align-items: flex-start;
   overflow-x: hidden;
 }
 
@@ -160,7 +181,7 @@
   background: #f5f5f5;
   padding: 20px 15px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   flex: 1;
   max-width: 420px;
   min-width: 280px;
@@ -173,14 +194,9 @@
   margin-bottom: 12px;
 }
 
-.vm-box p {
-  font-size: 15px;
-  color: #555;
-  line-height: 1.6;
-}
-
+.vm-box p,
 .vm-box ul li {
-  font-size: 16px;
+  font-size: 15px;
   color: #555;
   line-height: 1.6;
 }
@@ -191,30 +207,27 @@
   margin: 0;
 }
 
-
-
-/* Responsive for mobile */
+/* Vision & Mission Responsive */
 @media (max-width: 768px) {
-  /* Vision & Mission boxes stacked vertically */
   .vision-mission-container-right {
-    flex-direction: column; /* stack vertically */
+    flex-direction: column;
     gap: 10px;
     width: 100%;
-    margin-top: 0px;
+    margin-top: 0;
   }
 
   .vm-box {
-    max-width: 100%; /* take full width on mobile */
-    height: auto; /* let height adjust based on content */
+    max-width: 100%;
+    height: auto;
   }
 }
 
 
-
-
-/* ---------------------- LEADERSHIP SECTION ---------------------- */
+/* =========================================================
+   LEADERSHIP SECTION
+========================================================= */
 .leadership-section {
-  padding: 40px 40px;
+  /* padding: 40px 40px; */
   background: #fff;
   overflow-x: hidden;
 }
@@ -252,19 +265,18 @@
 .leadership-image img {
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .leadership-content h2 {
-  font-size: 36px;
+  font-size: 32px;
   margin-bottom: 20px;
   color: #425c86;
 }
 
 .leadership-content h3 {
   font-size: 24px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
   color: #333;
 }
 
@@ -277,53 +289,72 @@
 }
 
 .leadership-content ul {
-  list-style-type: disc;
+  list-style: disc;
   padding-left: 20px;
   margin-bottom: 15px;
 }
 
-/* Responsive */
+
+/* Leadership Responsive */
 @media (max-width: 768px) {
   .leadership-section {
-  padding: 0px 20px 20px;
-}
+    padding: 20px;
+  }
+
   .leadership-container {
     flex-direction: column;
+    gap: 10px;
   }
+
+
   .leadership-image,
   .leadership-content {
     min-width: 100%;
   }
 
   .leadership-content h2 {
-     font-size: 28px;
-    margin-bottom: 15px;
+    font-size: 26px;
+    margin-bottom: 10px;
   }
 
   .leadership-content h3 {
     font-size: 20px;
+    margin: 10px 0px 10px;
+  }
+
+  .leadership-content p {
+    margin-bottom: 5px;
   }
 
   .leadership-content p,
   .leadership-content ul li {
     font-size: 16px;
-    margin-bottom: 4px;
-    line-height: 1.8;
+  }
+
+  .leadership-content ul li {
+    margin-bottom: 6px;
+  }
+
+  .leadership-content ul {
+    margin-bottom: 0;
   }
 }
 
 
-
-/* QUALITY HEALTHCARE SECTION */
+/* =========================================================
+   QUALITY HEALTHCARE SECTION
+========================================================= */
 .quality-healthcare-section {
-  padding: 0px 100px;
-  margin: 20px 0;
-  /* background: #f4f9ff; */
+  /* border: 4px solid yellow; */
   overflow-x: hidden;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease-out;
 }
 
-.quality-healthcare-container {
-  margin: 0;
+.quality-healthcare-section.slide-in-left {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .quality-healthcare-section h2 {
@@ -336,8 +367,7 @@
 .quality-healthcare-section h3 {
   font-size: 24px;
   color: #333;
-  margin-top: 25px;
-  margin-bottom: 12px;
+  margin: 25px 0 12px;
 }
 
 .quality-healthcare-section p {
@@ -364,33 +394,52 @@
   color: #425c86;
 }
 
-/* Responsive */
+
+/* Quality Section Responsive */
 @media (max-width: 768px) {
   .quality-healthcare-section {
-    padding: 0px 20px;
+    padding: 20px;
     margin: 0;
   }
 
   .quality-healthcare-section h2 {
-    font-size: 28px;
+    font-size: 26px;
+    margin-bottom: 10px;
   }
 
   .quality-healthcare-section h3 {
     font-size: 20px;
+    margin: 10px 0;
   }
 
   .quality-healthcare-section p,
   .healthcare-points li {
     font-size: 15px;
   }
+
+  .quality-healthcare-section p {
+    margin-bottom: 7px;
+  }
+
+  .healthcare-points {
+    margin-bottom: 10px;
+  }
+
+  .healthcare-points li {
+    margin-bottom: 5px;
+  }
 }
 
 
+/* =========================================================
+   CORE VALUES
+========================================================= */
+.values-section {
+  /* border: 4px solid green; */
+}
 
-
-/* ---------------------- CORE VALUES ---------------------- */
 .values-section-title {
-  font-size: 36px;
+  font-size: 32px;
   text-align: center;
   color: #425c86;
   margin-bottom: 10px;
@@ -399,6 +448,7 @@
 
 .values-section-subtitle {
   text-align: center;
+  font-size: 18px;
   margin-bottom: 50px;
 }
 
@@ -441,16 +491,33 @@
   line-height: 1.5;
 }
 
-/* ---------------------- STATS SECTION ---------------------- */
+
+/* =========================================================
+   STATS SECTION
+========================================================= */
 .stats-section {
   background: #f4f9ff;
   text-align: center;
+  /* border: 4px solid red; */
+}
+
+.stats-title {
+  font-size: 32px;
+  text-align: center;
+  color: #425c86;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.stats-subtitle {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 50px;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  text-align: center;
   gap: 20px;
   margin-top: 40px;
 }
@@ -472,8 +539,9 @@
 }
 
 
-
-/* ---------------------- RESPONSIVE ---------------------- */
+/* =========================================================
+   GLOBAL RESPONSIVE (MOBILE)
+========================================================= */
 @media (max-width: 768px) {
   .about-hero {
     height: 40vh;
@@ -487,52 +555,52 @@
     font-size: 16px;
   }
 
-  .section-title {
-    font-size: 28px;
-    margin-bottom: 15px;
-  }
 
-  .section-text {
-    font-size: 16px;
-    margin-bottom: 0;
-  }
 
-  .values-section-title {
-    font-size: 28px;
-    margin-bottom: 15px;
-  }
-
-  .stats-title {
-    font-size: 28px;
-    margin-bottom: 15px;
-  }
 
   .about-section,
   .values-section,
   .stats-section {
-    padding: 20px 10px 20px;
+    padding: 20px;
   }
 
   .values-section-title {
-    font-size: 32px;
+    font-size: 26px;
+    margin-bottom: 5px;
   }
 
   .values-section-subtitle {
     font-size: 15px;
+    margin-bottom: 30px;
   }
 
   .value-card p {
     font-size: 15px;
   }
 
+  .stats-title {
+    font-size: 26px;
+    margin-bottom: 5px;
+  }
+
+  .stats-subtitle {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
   .stat-card h3 {
     font-size: 25px;
   }
 
+  .stats-grid {
+    margin-top: 20px;
+  }
 }
 
-/* ---------------------- ANIMATIONS ---------------------- */
-/* Hero already defined above */
+
+/* =========================================================
+   ANIMATIONS (SHARED)
+========================================================= */
 .slide-in-bottom {
   transform: translateY(0);
   opacity: 1;
@@ -544,11 +612,11 @@
 }
 
 .slide-in-left {
-  opacity: 1;
   transform: translateX(0);
+  opacity: 1;
 }
 
-/* Values cards staggered delays */
+/* Value cards stagger */
 .delay-1 {
   transition-delay: 0.1s;
 }
@@ -561,7 +629,7 @@
   transition-delay: 0.3s;
 }
 
-/* Stats animations & delays */
+/* Stats animations */
 .stats-slide-left {
   opacity: 1;
   transform: translateX(0);
@@ -588,18 +656,4 @@
 
 .stats-delay-4 {
   transition-delay: 0.5s;
-}
-
-
-
-/* Slide-in animation for Quality Healthcare section */
-.quality-healthcare-section {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: all 0.8s ease-out;
-}
-
-.quality-healthcare-section.slide-in-left {
-  opacity: 1;
-  transform: translateX(0);
 }
