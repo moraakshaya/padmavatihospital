@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import departmentsData from "../../data/departmentsinglepagedata";
 
-
-
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -12,7 +10,34 @@ function Navbar() {
 
   const dropdownRef = useRef(null);
 
-  // Prevent dropdown from going outside the screen
+  // ⭐ NEW: Ref for mobile menu (whole container)
+  const mobileMenuRef = useRef(null);
+
+  // ⭐ NEW: Close mobile menu ONLY when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target)
+      ) {
+        setMenuOpen(false);
+        setDropdownOpen(false);
+        setMoreDropdownOpen(false);
+      }
+    }
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
+
+  // Prevent desktop dropdown overflow
   useEffect(() => {
     if (dropdownOpen && dropdownRef.current) {
       const dropdown = dropdownRef.current;
@@ -43,7 +68,7 @@ function Navbar() {
           <li><Link to="/about">About</Link></li>
           <li><Link to="/doctors">Doctors</Link></li>
 
-          {/* DROPDOWN */}
+          {/* DESKTOP DROPDOWN */}
           <li
             className="pmc-dropdown"
             onMouseEnter={() => setDropdownOpen(true)}
@@ -52,7 +77,6 @@ function Navbar() {
             <span className={`dropbtn ${dropdownOpen ? "active" : ""}`}>
               Departments ▾
             </span>
-
 
             <div
               ref={dropdownRef}
@@ -65,13 +89,12 @@ function Navbar() {
                   </Link>
                 ))}
               </div>
-
             </div>
           </li>
 
-          {/* <li><Link to="/gallery">Gallery</Link></li> */}
           <li><Link to="/contact">Contact</Link></li>
-          {/* SECOND DROPDOWN — MORE */}
+
+          {/* DESKTOP MORE DROPDOWN */}
           <li
             className="pmc-dropdown"
             onMouseEnter={() => setMoreDropdownOpen(true)}
@@ -93,7 +116,6 @@ function Navbar() {
             </div>
           </li>
 
-
           {/* APPOINTMENT */}
           <li>
             <Link to="/bookappoinment" className="appointment-btn">
@@ -103,17 +125,27 @@ function Navbar() {
         </ul>
 
         {/* MOBILE ICON */}
-        <div className="pmc-menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+        <div
+          className="pmc-menu-icon"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           ☰
         </div>
 
-        {/* MOBILE MENU */}
-        <ul className={menuOpen ? "pmc-nav-links mobile-menu show" : "pmc-nav-links mobile-menu"}>
+        {/* ⭐ MOBILE MENU — With ref (IMPORTANT) */}
+        <ul
+          ref={mobileMenuRef}
+          className={
+            menuOpen
+              ? "pmc-nav-links mobile-menu show"
+              : "pmc-nav-links mobile-menu"
+          }
+        >
           <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
           <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
           <li><Link to="/doctors" onClick={() => setMenuOpen(false)}>Doctors</Link></li>
 
-          {/* MOBILE DROPDOWN */}
+          {/* MOBILE DEPARTMENT DROPDOWN */}
           <li className="mobile-dropdown" onClick={() => setDropdownOpen(!dropdownOpen)}>
             <span className={`mobile-dropbtn ${dropdownOpen ? "active" : ""}`}>
               Departments ▾
@@ -123,7 +155,7 @@ function Navbar() {
               {departmentsData.map((dept) => (
                 <li key={dept.id}>
                   <Link
-                    to={`/departments/${dept.slug}`}  // use slug here
+                    to={`/departments/${dept.slug}`}
                     onClick={() => setMenuOpen(false)}
                   >
                     {dept.name}
@@ -131,12 +163,11 @@ function Navbar() {
                 </li>
               ))}
             </ul>
-
           </li>
 
-          {/* <li><Link to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link></li> */}
           <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
-          {/* MOBILE — MORE DROPDOWN */}
+
+          {/* MOBILE MORE DROPDOWN */}
           <li className="mobile-dropdown" onClick={() => setMoreDropdownOpen(!moreDropdownOpen)}>
             <span className={`mobile-dropbtn ${moreDropdownOpen ? "active" : ""}`}>
               More ▾
@@ -158,10 +189,18 @@ function Navbar() {
             </ul>
           </li>
 
-          <li><Link to="/bookappoinment" className="appointment-mobile-btn" onClick={() => setMenuOpen(false)}>Book Appointment</Link></li>
+          <li>
+            <Link
+              to="/bookappoinment"
+              className="appointment-mobile-btn"
+              onClick={() => setMenuOpen(false)}
+            >
+              Book Appointment
+            </Link>
+          </li>
         </ul>
       </div>
-    </nav >
+    </nav>
   );
 }
 

@@ -19,11 +19,12 @@ function Footer() {
 
                 {/* -------- COLUMN 1 -------- */}
                 <div className="footer-col">
-                    <img
+                    
+                    <Link to="/"><img
                         src="/padmavathilogo.png"
                         alt="Padmavati Medical Center"
                         className="footer-logo"
-                    />
+                    /></Link>
 
                     <p className="footer-address">
                         Plot No. 12-13-60, Main Road, Tarnaka &
