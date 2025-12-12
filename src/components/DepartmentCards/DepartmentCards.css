@@ -1,5 +1,6 @@
 .departments-section {
-  padding: 50px 20px;
+  padding: 30px 40px 10px;
+  background-color: #fff;
 }
 
 .departments-title {
@@ -72,6 +73,24 @@
 }
 
 @media (max-width: 768px) {
+  .departments-section {
+    padding: 20px;
+    /* border: 4px solid black; */
+  }
+
+  .departments-title {
+    font-size: 26px;
+  }
+
+  .departments-subtitle {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .department-desc {
+    font-size: 15px!important;
+  }
+  
   .desktop-view {
     display: none;
   }

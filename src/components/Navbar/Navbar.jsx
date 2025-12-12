@@ -86,9 +86,9 @@ function Navbar() {
             >
               <div className="grid-2">
                 <Link to="/gallery">Gallery</Link>
-                <Link to="/Insurance">Insurance</Link>
-                <Link to="/Blog">Blogs</Link>
-                <Link to="/Testimonials">Testimonials</Link>
+                <Link to="/insurance">Insurance</Link>
+                <Link to="/blog">Blogs</Link>
+                <Link to="/testimonials">Testimonials</Link>
               </div>
             </div>
           </li>
@@ -96,7 +96,7 @@ function Navbar() {
 
           {/* APPOINTMENT */}
           <li>
-            <Link to="/Bookappoinment" className="appointment-btn">
+            <Link to="/bookappoinment" className="appointment-btn">
               Book Appointment
             </Link>
           </li>
@@ -150,15 +150,15 @@ function Navbar() {
                 <Link to="/Insurance" onClick={() => setMenuOpen(false)}>Insurance</Link>
               </li>
               <li>
-                <Link to="/Blog" onClick={() => setMenuOpen(false)}>Blogs</Link>
+                <Link to="/blog" onClick={() => setMenuOpen(false)}>Blogs</Link>
               </li>
               <li>
-                <Link to="/Testimonials" onClick={() => setMenuOpen(false)}>Testimonials</Link>
+                <Link to="/testimonials" onClick={() => setMenuOpen(false)}>Testimonials</Link>
               </li>
             </ul>
           </li>
 
-          <li><Link to="/Bookappoinment" className="appointment-mobile-btn" onClick={() => setMenuOpen(false)}>Book Appointment</Link></li>
+          <li><Link to="/bookappoinment" className="appointment-mobile-btn" onClick={() => setMenuOpen(false)}>Book Appointment</Link></li>
         </ul>
       </div>
     </nav >

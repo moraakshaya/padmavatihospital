@@ -14,25 +14,27 @@ import TermsAndConditions from "./pages/terms-&-conditions/terms-&-conditions";
 import PrivacyPolicy from "./pages/privacy-policy/privacy-policy"; 
 import Bookappoinment from "./pages/Bookappoinment/Bookappoinment";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./pages/ScrollToTop";
 
 function App() {
   return (
     <>
+    <ScrollToTop />
       <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Doctors" element={<Doctors />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/doctors" element={<Doctors />} />
         <Route path="/departments/:slug" element={<Departmentsinglepage />} />
-        <Route path="/Gallery" element={<Gallery />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/Blog" element={<Blog />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogDetails />} />
-        <Route path="/Testimonials" element={<Testimonials />} />
-        <Route path="/Bookappoinment" element={<Bookappoinment />} />
-        <Route path="/Insurance" element={<Insurance/>} />
-        <Route path="/Terms-&-Conditions" element={<TermsAndConditions />} />
+        <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/bookappoinment" element={<Bookappoinment />} />
+        <Route path="/insurance" element={<Insurance/>} />
+        <Route path="/terms-&-Conditions" element={<TermsAndConditions />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
       </Routes>
 
