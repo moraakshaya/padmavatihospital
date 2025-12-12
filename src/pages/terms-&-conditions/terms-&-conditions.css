@@ -87,7 +87,8 @@
   }
 
   .tc-hero-content h1 {
-    font-size: 34px;
+    font-size: 30px;
+    margin-bottom: 10px;
   }
 
   .tc-hero-content p {
@@ -95,7 +96,7 @@
   }
 
   .tc-content {
-    padding: 20px 10px;
+    padding: 20px;
   }
 
   .tc-wrapper h2 {
