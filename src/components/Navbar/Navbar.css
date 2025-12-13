@@ -343,3 +343,19 @@ button,
 .grid-2 a:hover {
   color: #C4585F !important;
 }
+
+/* Hide mobile menu wrapper on desktop */
+.mobile-menu-wrapper {
+  display: none;
+}
+
+/* Show only on mobile */
+@media (max-width: 992px) {
+  .mobile-menu-wrapper {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+}
