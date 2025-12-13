@@ -108,11 +108,11 @@ function Home() {
     <>
       {/* HERO SECTION */}
       <section className="home-hero">
-        <img src="../h1.jpg" alt="Hospital" className="home-hero-bg" />
+        <img src="../3.webp" alt="Hospital" className="home-hero-bg" />
         <div className="home-hero-overlay"></div>
 
         <div className="home-hero-content">
-          <h1>Your Health, Our Priority</h1>
+          <h1>Your Health, Our <span>Priority</span></h1>
           <p>World-class treatments with expert doctors and modern facilities.</p>
           <button className="home-hero-btn">Book Appointment</button>
         </div>

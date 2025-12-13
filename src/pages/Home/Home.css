@@ -7,13 +7,13 @@
   align-items: center;
   padding-left: 5%;
   overflow: hidden;
-  /* border: 4px solid black; */
 }
 
 /* DESKTOP IMAGE BEHAVIOR */
 .home-hero-bg {
   position: absolute;
-  top: -50px;
+  top: -5%;
+  right: 0;
   left: 0;
   width: 100%;
   height: 100vh;
@@ -24,13 +24,13 @@
 
 /* DARK OVERLAY */
 .home-hero-overlay {
-  position: absolute;
+  /* position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100%; */
   /* background: rgba(0, 0, 0, 0.55); */
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 /* CONTENT */
@@ -38,44 +38,56 @@
   position: relative;
   z-index: 3;
   color: white;
-  max-width: 500px;
+  max-width: 800px;
+  /* border: 3px solid black; */
 }
 
 .home-hero-content h1 {
-  font-size: 48px;
+  font-size: 58px;
   font-weight: 700;
   margin-bottom: 10px;
+  color: black;
+}
+
+.home-hero-content h1 span {
+  color: #c4585f;
 }
 
 .home-hero-content p {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 20px;
   line-height: 1.5;
+  color: #555;
 }
 
 .home-hero-btn {
   padding: 12px 28px;
-  background: #ff4f5a;
+  background: #c4585f;
   color: white;
-  font-size: 18px;
-  border-radius: 6px;
-  font-weight: 600;
+  font-size: 16px;
+  border-radius: 12px;
+  font-weight: 500;
   border: none;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
 .home-hero-btn:hover {
-  background: #ff323f;
+  background: transparent;
+  border: 1px solid #c4585f;
+  color: #000;
+  box-shadow: 0 0 5px rgb(196, 88, 95, 0.6);
 }
 
 /* ---------------------- MOBILE FIX ---------------------- */
 @media (max-width: 768px) {
   .home-hero {
     height: 40vh;          /* allow section to grow */
-    padding: 40px 20px;
+    padding: 40px 10px 40px 0px;
     flex-direction: column;
     text-align: center;
+    align-items: start;
+    justify-content: start;
   }
 
   .home-hero-bg {
@@ -90,21 +102,27 @@
   }
 
   .home-hero-content {
-    /* margin-top: 20px;
-    padding: 0 10px; */
-    /* border: 3px solid black; */
+    /* border: 2px solid black; */
+    max-width: 250px!important;
     text-align: center;
-    margin: auto 0;
   }
 
   .home-hero-content h1 {
-    font-size: 28px;
+    font-size: 24px;
+    margin-bottom: 2px;
   }
 
   .home-hero-content p {
-    font-size: 16px;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .home-hero-btn {
+    padding: 10px 20px;
+    font-size: 14px;
   }
 }
+
 
 
 
