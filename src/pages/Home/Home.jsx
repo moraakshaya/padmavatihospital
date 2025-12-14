@@ -11,24 +11,25 @@ function Home() {
   const navigate = useNavigate();
 
   // HERO SECTION ANIMATION
-  const heroRef = useRef(null);
-  const [animateHero, setAnimateHero] = useState(false);
+   const heroRef = useRef(null);
+  const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setAnimateHero(true);
-          observer.disconnect(); // run only once
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAnimate(true);       // trigger animation
+          observer.disconnect();  // run ONLY ONCE
         }
       },
       { threshold: 0.4 }
     );
 
     if (heroRef.current) observer.observe(heroRef.current);
+
+    return () => observer.disconnect();
   }, []);
-
-
+  
   // WHY SECTION ANIMATION
   const whyRef = useRef(null);
   const [animateWhy, setAnimateWhy] = useState(false);
@@ -107,27 +108,23 @@ function Home() {
   return (
     <>
       {/* HERO SECTION */}
-      <section class="hero">
-        <div class="hero-overlay">
-          <div class="hero-content">
+      <section className="hero" ref={heroRef}>
+      <div className="hero-content">
 
-            {/*-- LEFT TEXT --*/}
-            <div class="hero-text">
-              <h1>Your Health, Our <span>Priority</span></h1>
-              <p>
-                World-class treatments with expert doctors and modern facilities.
-              </p>
-              <button>Book Appointment</button>
-            </div>
-
-            {/*-- RIGHT IMAGE --*/}
-            <div class="hero-image">
-              <img src="../hp.png" alt="Doctor" /> 
-            </div>
-
-          </div>
+        {/* LEFT TEXT */}
+        <div className={`hero-text ${animate ? "animate-text" : ""}`}>
+          <h1>Your Health, Our <span>Priority</span></h1>
+          <p>World-class treatments with expert doctors and modern facilities.</p>
+          <button>Book Appointment</button>
         </div>
-      </section>
+
+        {/* RIGHT IMAGE */}
+        <div className={`hero-image ${animate ? "animate-image" : ""}`}>
+          <img src="../hp.png" alt="Doctor" />
+        </div>
+
+      </div>
+    </section>
 
 
       {/* WHY CHOOSE US SECTION */}

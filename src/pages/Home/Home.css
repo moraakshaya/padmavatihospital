@@ -58,11 +58,18 @@
 .hero-text button {
   padding: 12px 30px;
   font-size: 16px;
-  background: #2ea3f2;
+  background: #c4585f;
   color: #fff;
-  border: none;
+  border: 2px solid #c4585f;
   border-radius: 12px;
   cursor: pointer;
+}
+
+.hero-text button:hover {
+  background: transparent;
+  color: #c4585f;
+  box-shadow: 0 4px 12px rgba(196, 88, 95, 0.8);
+  transform: translateY(-2px);
 }
 
 /* RIGHT IMAGE */
@@ -144,6 +151,57 @@
     border-radius: 8px;
   }
 }
+
+/* INITIAL STATE */
+.hero-text h1,
+.hero-text p,
+.hero-text button {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+.hero-image img {
+  opacity: 0;
+  transform: translateY(80px);
+}
+
+/* WHEN LOGIC ADDS CLASS */
+.animate-text h1 {
+  animation: leftSlide 0.8s ease forwards;
+}
+
+.animate-text p {
+  animation: leftSlide 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.animate-text button {
+  animation: leftSlide 0.8s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.animate-image img {
+  animation: bottomSlide 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+/* KEYFRAMES */
+@keyframes leftSlide {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bottomSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
 
 
 
