@@ -107,16 +107,28 @@ function Home() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="home-hero">
-        <img src="../3.webp" alt="Hospital" className="home-hero-bg" />
-        <div className="home-hero-overlay"></div>
+      <section class="hero">
+        <div class="hero-overlay">
+          <div class="hero-content">
 
-        <div className="home-hero-content">
-          <h1>Your Health, Our <span>Priority</span></h1>
-          <p>World-class treatments with expert doctors and modern facilities.</p>
-          <button className="home-hero-btn">Book Appointment</button>
+            {/*-- LEFT TEXT --*/}
+            <div class="hero-text">
+              <h1>Your Health, Our <span>Priority</span></h1>
+              <p>
+                World-class treatments with expert doctors and modern facilities.
+              </p>
+              <button>Book Appointment</button>
+            </div>
+
+            {/*-- RIGHT IMAGE --*/}
+            <div class="hero-image">
+              <img src="../hp.png" alt="Doctor" /> 
+            </div>
+
+          </div>
         </div>
       </section>
+
 
       {/* WHY CHOOSE US SECTION */}
       <section className="why-section" ref={whyRef}>
