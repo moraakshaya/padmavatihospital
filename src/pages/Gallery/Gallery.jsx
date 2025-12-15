@@ -2,27 +2,42 @@ import React, { useState, useEffect, useRef } from "react";
 import "./Gallery.css";
 
 const galleryData = [
-  // Patient Interactions (Non-sensitive)
-  // { id: 1, category: "patient", img: "/images/gallery/p1.jpg" },
-  // { id: 2, category: "patient", img: "/images/gallery/p2.jpg" },
+  //Hospital Campaigns (events)
+  { id: 1, category: "events", img: "/gallery/gallery10.webp" },
+  { id: 2, category: "events", img: "/gallery/events2.webp" },
+  { id: 3, category: "events", img: "/gallery/events3.webp" },
+  { id: 4, category: "events", img: "/gallery/events4.webp" },
+  { id: 5, category: "events", img: "/gallery/events5.webp" },
+  { id: 6, category: "events", img: "/gallery/events6.webp" },
+
+
 
   // Infrastructure
-  { id: 3, category: "infrastructure", img: "/gallery/gallery1.webp" },
-  { id: 4, category: "infrastructure", img: "/gallery/gallery2.webp" },
-  { id: 5, category: "infrastructure", img: "/gallery/gallery3.webp" },
-  { id: 6, category: "infrastructure", img: "/gallery/gallery4.webp" },
-  { id: 7, category: "infrastructure", img: "/gallery/gallery5.webp" },
-  { id: 8, category: "infrastructure", img: "/gallery/gallery6.webp" },
-  { id: 9, category: "infrastructure", img: "/gallery/gallery7.webp" },
-  { id: 10, category: "infrastructure", img: "/gallery/gallery8.webp" },
-  { id: 11, category: "infrastructure", img: "/gallery/gallery9.webp" },
-
-
-
-  // Doctors at Work
-  { id: 12, category: "doctors", img: "/gallery/gallery10.webp" },
-
-  // Events 
+  { id: 7, category: "infrastructure", img: "/gallery/gallery1.webp" },
+  { id: 8, category: "infrastructure", img: "/gallery/gallery2.webp" },
+  { id: 9, category: "infrastructure", img: "/gallery/gallery3.webp" },
+  { id: 10, category: "infrastructure", img: "/gallery/gallery4.webp" },
+  { id: 11, category: "infrastructure", img: "/gallery/gallery5.webp" },
+  { id: 12, category: "infrastructure", img: "/gallery/gallery6.webp" },
+  { id: 13, category: "infrastructure", img: "/gallery/gallery7.webp" },
+  { id: 14, category: "infrastructure", img: "/gallery/gallery8.webp" },
+  { id: 15, category: "infrastructure", img: "/gallery/gallery9.webp" },
+  { id: 16, category: "infrastructure", img: "/gallery/infa1.webp"},
+  { id: 17, category: "infrastructure", img: "/gallery/infa2.webp" },
+  { id: 18, category: "infrastructure", img: "/gallery/infa3.webp" },
+  { id: 19, category: "infrastructure", img: "/gallery/infa4.webp" },
+  { id: 20, category: "infrastructure", img: "/gallery/infa5.webp" },
+  { id: 21, category: "infrastructure", img: "/gallery/infa6.webp" },
+  { id: 22, category: "infrastructure", img: "/gallery/infa7.webp" },
+  { id: 23, category: "infrastructure", img: "/gallery/infa8.webp" },
+  { id: 24, category: "infrastructure", img: "/gallery/infa9.webp" },
+  { id: 25, category: "infrastructure", img: "/gallery/infa10.webp" },
+  { id: 26, category: "infrastructure", img: "/gallery/infa11.webp" },
+  { id: 27, category: "infrastructure", img: "/gallery/infa12.webp" },
+  { id: 28, category: "infrastructure", img: "/gallery/infa13.webp" },
+  { id: 29, category: "infrastructure", img: "/gallery/infa14.webp" },
+  { id: 30, category: "infrastructure", img: "/gallery/infa15.webp" },
+  { id: 31, category: "infrastructure", img: "/gallery/infa16.webp" },
 
 ];
 
@@ -101,10 +116,9 @@ function Gallery() {
           <h3>Filter by Category</h3>
           <ul className="gallery-filters">
             <li className={selectedFilter === "all" ? "active" : ""} onClick={() => setSelectedFilter("all")}>All</li>
-            <li className={selectedFilter === "events" ? "active" : ""} onClick={() => setSelectedFilter("events")}>Events</li>
-            <li className={selectedFilter === "patient" ? "active" : ""} onClick={() => setSelectedFilter("patient")}>Patient Interactions</li>
+            <li className={selectedFilter === "events" ? "active" : ""} onClick={() => setSelectedFilter("events")}>Health Campaigns</li>
             <li className={selectedFilter === "infrastructure" ? "active" : ""} onClick={() => setSelectedFilter("infrastructure")}>Infrastructure</li>
-            <li className={selectedFilter === "doctors" ? "active" : ""} onClick={() => setSelectedFilter("doctors")}>Doctors at Work</li>
+
           </ul>
         </div>
 

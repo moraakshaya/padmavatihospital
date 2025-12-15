@@ -9,9 +9,11 @@ import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
-
+  const handleAppointmentClick = () => {
+  navigate("/bookappoinment");
+};
   // HERO SECTION ANIMATION
-   const heroRef = useRef(null);
+  const heroRef = useRef(null);
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
@@ -29,7 +31,7 @@ function Home() {
 
     return () => observer.disconnect();
   }, []);
-  
+
   // WHY SECTION ANIMATION
   const whyRef = useRef(null);
   const [animateWhy, setAnimateWhy] = useState(false);
@@ -105,26 +107,31 @@ function Home() {
   }, [animatedTesti]);
 
 
+
+
+
   return (
     <>
       {/* HERO SECTION */}
       <section className="hero" ref={heroRef}>
-      <div className="hero-content">
+        <div className="hero-content">
 
-        {/* LEFT TEXT */}
-        <div className={`hero-text ${animate ? "animate-text" : ""}`}>
-          <h1>Your Health, Our <span>Priority</span></h1>
-          <p>World-class treatments with expert doctors and modern facilities.</p>
-          <button>Book Appointment</button>
+          {/* LEFT TEXT */}
+          <div className={`hero-text ${animate ? "animate-text" : ""}`}>
+            <h1>Your Health, Our <span>Priority</span></h1>
+            <p>World-class treatments with expert doctors and modern facilities.</p>
+            <button onClick={handleAppointmentClick}>
+              Book Appointment
+            </button>
+          </div>
+
+          {/* RIGHT IMAGE */}
+          <div className={`hero-image ${animate ? "animate-image" : ""}`}>
+            <img src="../hp.png" alt="Doctor" />
+          </div>
+
         </div>
-
-        {/* RIGHT IMAGE */}
-        <div className={`hero-image ${animate ? "animate-image" : ""}`}>
-          <img src="../hp.png" alt="Doctor" />
-        </div>
-
-      </div>
-    </section>
+      </section>
 
 
       {/* WHY CHOOSE US SECTION */}

@@ -153,7 +153,6 @@ function Contact() {
             <div className="ci-icon"><FaPhoneAlt /></div>
             <h3>Appointments</h3>
             <p className="ci-main">9160668686 , 9866635947</p>
-            <p className="ci-sub">Mon–Sat, 9AM–6PM</p>
           </div>
 
           {/* Email */}
