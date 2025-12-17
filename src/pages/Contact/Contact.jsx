@@ -230,13 +230,15 @@ function Contact() {
             <div className="map-box">
               <iframe
                 title="Hospital Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.536213695486!2d78.4800331749272!3d17.385044683490277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97551e4e2f47%3A0x6b0a90fa14a3cd59!2sSultan%20Bazaar!5e0!3m2!1sen!2sin!4v1705130463434"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.402948690773!2d78.5300602!3d17.426209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9963369be3d7%3A0xa287bc9155269c43!2sPadmavathi%20Hospital!5e0!3m2!1sen!2sin!4v1700000000000"
                 width="100%"
                 height="300"
                 style={{ border: 0, borderRadius: "12px" }}
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
+
           </div>
 
         </div>

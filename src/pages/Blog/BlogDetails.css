@@ -272,7 +272,7 @@
   }
 
   .blog-details-hero-title {
-    font-size: 30px;
+    font-size: 30px;    
     font-weight: 700;
     padding-top: 0;
   }
@@ -357,3 +357,25 @@ CSS ANIMATION CODE
 
 
 
+/* =========================
+   HIDE SCROLLBAR (BUT SCROLL ENABLED)
+========================= */
+
+/* Chrome, Edge, Safari */
+.blog-main::-webkit-scrollbar,
+.blog-sidebar::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* Firefox */
+.blog-main,
+.blog-sidebar {
+  scrollbar-width: none; /* Firefox */
+}
+
+/* IE / Edge (legacy) */
+.blog-main,
+.blog-sidebar {
+  -ms-overflow-style: none;
+}

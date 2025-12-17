@@ -164,7 +164,7 @@ function Home() {
             className="hero-card location"
             onClick={() =>
               window.open(
-                "https://www.google.com/maps/search/?api=1&query=17.385044,78.486671",
+                "https://www.google.com/maps/dir//12-13+67%2F2,+Street+Number+5,+near+Sanman+Hotel,+Sadashiva+Nagar,+Tarnaka,+Secunderabad,+Telangana+500017/@17.5046656,78.3777792,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bcb9963369be3d7:0xa287bc9155269c43!2m2!1d78.5322483!2d17.426208?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D",
                 "_blank"
               )
             }
