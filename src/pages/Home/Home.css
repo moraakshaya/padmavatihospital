@@ -112,7 +112,7 @@ body {
   display: flex;
   justify-content: center;
   /* border: 2px solid red; */
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 .home-hero-image img {
@@ -142,7 +142,8 @@ body {
 
 /* CARD BASE */
 .hero-card {
-  height: 140px;
+  height: 120px;
+  width: 240px;
   /* background: linear-gradient(135deg, #c4585f, #8b2f36); */
   background: linear-gradient(145deg, #e27b33, #c4585f);
   border-radius: 16px;
