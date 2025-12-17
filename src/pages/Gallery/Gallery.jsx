@@ -10,8 +10,6 @@ const galleryData = [
   { id: 5, category: "events", img: "/gallery/events5.webp" },
   { id: 6, category: "events", img: "/gallery/events6.webp" },
 
-
-
   // Infrastructure
   { id: 7, category: "infrastructure", img: "/gallery/gallery1.webp" },
   { id: 8, category: "infrastructure", img: "/gallery/gallery2.webp" },
@@ -22,7 +20,7 @@ const galleryData = [
   { id: 13, category: "infrastructure", img: "/gallery/gallery7.webp" },
   { id: 14, category: "infrastructure", img: "/gallery/gallery8.webp" },
   { id: 15, category: "infrastructure", img: "/gallery/gallery9.webp" },
-  { id: 16, category: "infrastructure", img: "/gallery/infa1.webp"},
+  { id: 16, category: "infrastructure", img: "/gallery/infa1.webp" },
   { id: 17, category: "infrastructure", img: "/gallery/infa2.webp" },
   { id: 18, category: "infrastructure", img: "/gallery/infa3.webp" },
   { id: 19, category: "infrastructure", img: "/gallery/infa4.webp" },
@@ -38,14 +36,11 @@ const galleryData = [
   { id: 29, category: "infrastructure", img: "/gallery/infa14.webp" },
   { id: 30, category: "infrastructure", img: "/gallery/infa15.webp" },
   { id: 31, category: "infrastructure", img: "/gallery/infa16.webp" },
-
 ];
 
 function Gallery() {
   const [selectedFilter, setSelectedFilter] = useState("all");
-
   const [selectedImage, setSelectedImage] = useState(null);
-
 
   const filteredImages =
     selectedFilter === "all"
@@ -81,23 +76,25 @@ function Gallery() {
   const [animateRight, setAnimateRight] = useState(false);
 
   useEffect(() => {
-   const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        if (entry.target === leftRef.current) setAnimateLeft(true);
-        if (entry.target === rightRef.current) setAnimateRight(true);
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.1,
-    rootMargin: "0px 0px -100px 0px",
-  }
-);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === leftRef.current) setAnimateLeft(true);
+            if (entry.target === rightRef.current) setAnimateRight(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -100px 0px" }
+    );
+
     if (leftRef.current) observer.observe(leftRef.current);
     if (rightRef.current) observer.observe(rightRef.current);
+
+    // Mobile fallback: show gallery immediately on small screens
+    if (window.innerWidth < 768) setAnimateRight(true);
+
     return () => observer.disconnect();
   }, []);
 
@@ -115,17 +112,37 @@ function Gallery() {
 
       {/* GALLERY SECTION */}
       <section className="gallery-main container">
-        <div ref={leftRef} className={`gallery-left ${animateLeft ? "slide-in-left" : ""}`}>
+        <div
+          ref={leftRef}
+          className={`gallery-left ${animateLeft ? "slide-in-left" : ""}`}
+        >
           <h3>Filter by Category</h3>
           <ul className="gallery-filters">
-            <li className={selectedFilter === "all" ? "active" : ""} onClick={() => setSelectedFilter("all")}>All</li>
-            <li className={selectedFilter === "events" ? "active" : ""} onClick={() => setSelectedFilter("events")}>Health Campaigns</li>
-            <li className={selectedFilter === "infrastructure" ? "active" : ""} onClick={() => setSelectedFilter("infrastructure")}>Infrastructure</li>
-
+            <li
+              className={selectedFilter === "all" ? "active" : ""}
+              onClick={() => setSelectedFilter("all")}
+            >
+              All
+            </li>
+            <li
+              className={selectedFilter === "events" ? "active" : ""}
+              onClick={() => setSelectedFilter("events")}
+            >
+              Health Campaigns
+            </li>
+            <li
+              className={selectedFilter === "infrastructure" ? "active" : ""}
+              onClick={() => setSelectedFilter("infrastructure")}
+            >
+              Infrastructure
+            </li>
           </ul>
         </div>
 
-        <div ref={rightRef} className={`gallery-right ${animateRight ? "slide-in-bottom" : ""}`}>
+        <div
+          ref={rightRef}
+          className={`gallery-right ${animateRight ? "slide-in-bottom" : ""}`}
+        >
           <div className="gallery-grid">
             {filteredImages.map((img) => (
               <div
@@ -136,7 +153,6 @@ function Gallery() {
                 <img src={img.img} alt="" />
               </div>
             ))}
-
           </div>
         </div>
       </section>
@@ -144,17 +160,22 @@ function Gallery() {
       {/* IMAGE POPUP MODAL */}
       {selectedImage && (
         <div className="image-modal" onClick={() => setSelectedImage(null)}>
-          <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="image-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img src={selectedImage} alt="full" />
-            <button className="gall-close-btn" onClick={() => setSelectedImage(null)}>×</button>
+            <button
+              className="gall-close-btn"
+              onClick={() => setSelectedImage(null)}
+            >
+              ×
+            </button>
           </div>
         </div>
       )}
     </>
   );
 }
-
-
-
 
 export default Gallery;
