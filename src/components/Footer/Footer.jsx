@@ -21,7 +21,7 @@ function Footer() {
                 <div className="footer-col">
                     
                     <Link to="/"><img
-                        src="/padmavathilogo.png"
+                        src="/logo.png"
                         alt="Padmavati Medical Center"
                         className="footer-logo"
                     /></Link>

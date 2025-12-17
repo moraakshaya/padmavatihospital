@@ -29,8 +29,8 @@
 
 /* LOGO */
 .footer-logo {
-    width: 160px;
-    margin-bottom: 10px;
+    width: 260px;
+    margin-bottom: 0px;
 }
 
 /* ADDRESS */
@@ -126,10 +126,10 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .footer-logo {
+    /* .footer-logo {
         height: 100px;
         width: 100px;
-    }
+    } */
 }
 
 /* MOBILE */

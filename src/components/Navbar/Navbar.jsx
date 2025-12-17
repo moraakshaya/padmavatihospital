@@ -1,205 +1,221 @@
-import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
+import { NavLink } from "react-router-dom";
+import {
+  FaChevronDown,
+  FaPhoneAlt,
+  FaBars,
+  FaTimes,
+} from "react-icons/fa";
 import "./Navbar.css";
-import departmentsData from "../../data/departmentsinglepagedata";
+
+const departments = [
+  "Cardiology",
+  "General Medicine",
+  "Diabetology",
+  "Gastroenterology",
+  "Pediatrics",
+  "Neurology",
+  "Pulmonology",
+  "Orthopedics",
+  "Nephrology",
+  "General Surgery",
+  "Anesthesiology",
+  "Pathology",
+  "Urology",
+  "Dermatology",
+  "Physiotherapy",
+];
 
 function Navbar() {
+  const mobileMenuRef = useRef(null);
+  const deptRef = useRef(null);
+  const hamburgerRef = useRef(null);
+
+  const [sticky, setSticky] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
+  const [deptOpen, setDeptOpen] = useState(false);
 
-  const dropdownRef = useRef(null);
-
-  // ⭐ WRAPPER REF (icon + menu together)
-  const mobileWrapperRef = useRef(null);
-
-  // ⭐ Close mobile menu when clicking outside
+  /* ---------------- STICKY NAV ---------------- */
   useEffect(() => {
-    function handleClickOutside(event) {
+    const handleScroll = () => {
+      setSticky(window.scrollY > 80);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  /* ---------------- CLOSE MENU ---------------- */
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setDeptOpen(false);
+  };
+
+  /* ---------------- OUTSIDE CLICK ---------------- */
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+
+      // Ignore hamburger / close icon click
       if (
-        mobileWrapperRef.current &&
-        !mobileWrapperRef.current.contains(event.target)
+        hamburgerRef.current &&
+        hamburgerRef.current.contains(e.target)
+      ) {
+        return;
+      }
+
+      // Close mobile menu
+      if (
+        menuOpen &&
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(e.target)
       ) {
         setMenuOpen(false);
-        setDropdownOpen(false);
-        setMoreDropdownOpen(false);
+        setDeptOpen(false);
       }
-    }
 
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+      // Close department dropdown only
+      if (
+        deptOpen &&
+        deptRef.current &&
+        !deptRef.current.contains(e.target)
+      ) {
+        setDeptOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("touchstart", handleOutsideClick);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("touchstart", handleOutsideClick);
     };
-  }, [menuOpen]);
-
-  // Prevent desktop dropdown overflow
-  useEffect(() => {
-    if (dropdownOpen && dropdownRef.current) {
-      const dropdown = dropdownRef.current;
-      const rect = dropdown.getBoundingClientRect();
-
-      if (rect.right > window.innerWidth) {
-        dropdown.style.left = "auto";
-        dropdown.style.right = "0";
-      } else {
-        dropdown.style.left = "0";
-        dropdown.style.right = "auto";
-      }
-    }
-  }, [dropdownOpen]);
+  }, [menuOpen, deptOpen]);
 
   return (
-    <nav className="pmc-navbar">
-      <div className="pmc-container">
-
+    <header className={`navbar-wrapper ${sticky ? "sticky" : ""}`}>
+      <nav className="navbar">
         {/* LOGO */}
-        <Link to="/" className="pmc-logo">
-          <img src="/padmavathilogo.png" alt="Padmavati Medical Center" />
-        </Link>
+        <NavLink to="/" className="logo" onClick={closeMenu}>
+          <img src="/logo.png" alt="Hospital Logo" />
+        </NavLink>
 
-        {/* DESKTOP MENU */}
-        <ul className="pmc-nav-links desktop-only">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/doctors">Doctors</Link></li>
-
-          {/* DESKTOP DEPARTMENTS */}
-          <li
-            className="pmc-dropdown"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
-          >
-            <span className={`dropbtn ${dropdownOpen ? "active" : ""}`}>
-              Departments ▾
-            </span>
-
-            <div
-              ref={dropdownRef}
-              className={dropdownOpen ? "dropdown-menu show" : "dropdown-menu"}
-            >
-              <div className="grid-4">
-                {departmentsData.map((dept) => (
-                  <Link key={dept.id} to={`/departments/${dept.slug}`}>
-                    {dept.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
+        {/* DESKTOP NAV */}
+        <ul className="nav-links desktop-nav">
+          <li>
+            <NavLink to="/about" className={({ isActive }) => isActive ? "nav-active" : ""}>
+              About
+            </NavLink>
           </li>
 
-          <li><Link to="/contact">Contact</Link></li>
+          <li>
+            <NavLink to="/doctors" className={({ isActive }) => isActive ? "nav-active" : ""}>
+              Doctors
+            </NavLink>
+          </li>
 
-          {/* DESKTOP MORE */}
-          <li
-            className="pmc-dropdown"
-            onMouseEnter={() => setMoreDropdownOpen(true)}
-            onMouseLeave={() => setMoreDropdownOpen(false)}
-          >
-            <span className={`dropbtn ${moreDropdownOpen ? "active" : ""}`}>
-              More ▾
+          <li className="dropdown">
+            <span className="dropdown-title">
+              Departments <FaChevronDown />
             </span>
 
-            <div
-              className={moreDropdownOpen ? "dropdown-menu show" : "dropdown-menu"}
-            >
-              <div className="grid-2">
-                <Link to="/gallery">Gallery</Link>
-                <Link to="/insurance">Insurance</Link>
-                <Link to="/blog">Blogs</Link>
-                <Link to="/testimonials">Testimonials</Link>
+            <div className="dropdown-menu">
+              <div className="dropdown-grid">
+                {departments.map((dept, index) => (
+                  <NavLink
+                    key={index}
+                    to={`/departments/${dept.toLowerCase().replace(/\s+/g, "-")}`}
+                    className={({ isActive }) => isActive ? "nav-active" : ""}
+                  >
+                    {dept}
+                  </NavLink>
+                ))}
               </div>
             </div>
           </li>
 
           <li>
-            <Link to="/bookappoinment" className="appointment-btn">
-              Book Appointment
-            </Link>
+            <NavLink to="/gallery" className={({ isActive }) => isActive ? "nav-active" : ""}>
+              Gallery
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/contact" className={({ isActive }) => isActive ? "nav-active" : ""}>
+              Contact
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/blog" className={({ isActive }) => isActive ? "nav-active" : ""}>
+              Blogs
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/testimonials" className={({ isActive }) => isActive ? "nav-active" : ""}>
+              Testimonials
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/insurance" className={({ isActive }) => isActive ? "nav-active" : ""}>
+              Insurance
+            </NavLink>
+          </li>
+
+          <li className="contact-icon">
+            <NavLink to="/contact">
+              <FaPhoneAlt />
+            </NavLink>
           </li>
         </ul>
 
-        {/* ⭐ MOBILE MENU WRAPPER */}
-        <div ref={mobileWrapperRef} className="mobile-menu-wrapper">
+        {/* HAMBURGER */}
+        <div
+          ref={hamburgerRef}
+          className="hamburger"
+          onClick={() => setMenuOpen(prev => !prev)}
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+      </nav>
 
-          {/* MOBILE ICON */}
-          <div
-            className="pmc-menu-icon"
-            onClick={() => setMenuOpen((prev) => !prev)}
-          >
-            ☰
-          </div>
+      {/* MOBILE MENU */}
+      <div
+        ref={mobileMenuRef}
+        className={`mobile-menu ${menuOpen ? "active" : ""}`}
+      >
+        <NavLink to="/about" onClick={closeMenu}>About</NavLink>
+        <NavLink to="/doctors" onClick={closeMenu}>Doctors</NavLink>
 
-          {/* MOBILE MENU */}
-          <ul
-            className={
-              menuOpen
-                ? "pmc-nav-links mobile-menu show"
-                : "pmc-nav-links mobile-menu"
-            }
-          >
-            <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-            <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
-            <li><Link to="/doctors" onClick={() => setMenuOpen(false)}>Doctors</Link></li>
+        {/* MOBILE DEPARTMENTS */}
+        <div className="mobile-dept" ref={deptRef}>
+          <span onClick={() => setDeptOpen(prev => !prev)}>
+            Departments <FaChevronDown className={deptOpen ? "rotate" : ""} />
+          </span>
 
-            {/* MOBILE DEPARTMENTS */}
-            <li
-              className="mobile-dropdown"
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-            >
-              <span className={`mobile-dropbtn ${dropdownOpen ? "active" : ""}`}>
-                Departments ▾
-              </span>
-
-              <ul className={dropdownOpen ? "mobile-submenu show" : "mobile-submenu"}>
-                {departmentsData.map((dept) => (
-                  <li key={dept.id}>
-                    <Link
-                      to={`/departments/${dept.slug}`}
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      {dept.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </li>
-
-            <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
-
-            {/* MOBILE MORE */}
-            <li
-              className="mobile-dropdown"
-              onClick={() => setMoreDropdownOpen(!moreDropdownOpen)}
-            >
-              <span className={`mobile-dropbtn ${moreDropdownOpen ? "active" : ""}`}>
-                More ▾
-              </span>
-
-              <ul className={moreDropdownOpen ? "mobile-submenu show" : "mobile-submenu"}>
-                <li><Link to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link></li>
-                <li><Link to="/insurance" onClick={() => setMenuOpen(false)}>Insurance</Link></li>
-                <li><Link to="/blog" onClick={() => setMenuOpen(false)}>Blogs</Link></li>
-                <li><Link to="/testimonials" onClick={() => setMenuOpen(false)}>Testimonials</Link></li>
-              </ul>
-            </li>
-
-            <li>
-              <Link
-                to="/bookappoinment"
-                className="appointment-mobile-btn"
-                onClick={() => setMenuOpen(false)}
-              >
-                Book Appointment
-              </Link>
-            </li>
-          </ul>
+          {deptOpen && (
+            <div className="mobile-dept-list">
+              {departments.map((dept, index) => (
+                <NavLink
+                  key={index}
+                  to={`/departments/${dept.toLowerCase().replace(/\s+/g, "-")}`}
+                  onClick={closeMenu}
+                >
+                  {dept}
+                </NavLink>
+              ))}
+            </div>
+          )}
         </div>
 
+        <NavLink to="/gallery" onClick={closeMenu}>Gallery</NavLink>
+        <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
+        <NavLink to="/blog" onClick={closeMenu}>Blogs</NavLink>
+        <NavLink to="/testimonials" onClick={closeMenu}>Testimonials</NavLink>
+        <NavLink to="/insurance" onClick={closeMenu}>Insurance</NavLink>
       </div>
-    </nav>
+    </header>
   );
 }
 

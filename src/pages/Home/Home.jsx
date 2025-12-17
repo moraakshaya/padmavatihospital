@@ -10,9 +10,10 @@ import { useNavigate } from "react-router-dom";
 function Home() {
   const navigate = useNavigate();
   const handleAppointmentClick = () => {
-  navigate("/bookappoinment");
-};
+    navigate("/bookappoinment");
+  };
   // HERO SECTION ANIMATION
+  const [emergencyOpen, setEmergencyOpen] = useState(false);
   const heroRef = useRef(null);
   const [animate, setAnimate] = useState(false);
 
@@ -112,26 +113,88 @@ function Home() {
 
   return (
     <>
-      {/* HERO SECTION */}
-      <section className="hero" ref={heroRef}>
-        <div className="hero-content">
+      {/* HOME HERO SECTION */}
+      <section className="home-hero-section">
+        <div className="home-hero-overlay"></div>
 
-          {/* LEFT TEXT */}
-          <div className={`hero-text ${animate ? "animate-text" : ""}`}>
-            <h1>Your Health, Our <span>Priority</span></h1>
-            <p>World-class treatments with expert doctors and modern facilities.</p>
-            <button onClick={handleAppointmentClick}>
-              Book Appointment
-            </button>
+        <div className="home-hero-content">
+          {/*-- LEFT CONTENT --*/}
+          <div className="home-hero-text">
+            <h1>YOUR HEALTH, OUR <br /><span>PRIORITY</span></h1>
+            <p>
+              Providing trusted medical care with modern facilities and experienced doctors.
+            </p>
           </div>
 
-          {/* RIGHT IMAGE */}
-          <div className={`hero-image ${animate ? "animate-image" : ""}`}>
-            <img src="../hp.png" alt="Doctor" />
+          {/*-- RIGHT IMAGE --*/}
+          <div className="home-hero-image">
+            <img src="/hp.png" alt="Doctor" />
+          </div>
+        </div>
+
+        {/* HERO CARDS */}
+        <div className="home-hero-cards">
+          {/* Emergency */}
+          <div className="hero-card emergency" onClick={() => setEmergencyOpen(true)}>
+            <i className="fas fa-ambulance"></i>
+            <h4>Emergency</h4>
+          </div>
+
+          {/* Book Appointment */}
+          <div
+            className="hero-card appointment"
+            onClick={() => window.location.href = "/bookappoinment"}
+          >
+            <i className="fas fa-calendar-check"></i>
+            <h4>Book Appointment</h4>
+          </div>
+
+          {/* WhatsApp */}
+          <div
+            className="hero-card whatsapp"
+            onClick={() => window.open("https://wa.me/919999999999", "_blank")}
+          >
+            <i className="fab fa-whatsapp"></i>
+            <h4>WhatsApp</h4>
+          </div>
+
+          {/* Scanner */}
+          {/* Location */}
+          <div
+            className="hero-card location"
+            onClick={() =>
+              window.open(
+                "https://www.google.com/maps/search/?api=1&query=17.385044,78.486671",
+                "_blank"
+              )
+            }
+          >
+            <i className="fas fa-map-marker-alt"></i>
+            <h4>Location</h4>
           </div>
 
         </div>
+
       </section>
+
+      {emergencyOpen && (
+        <div className="emergency-modal">
+          <div className="emergency-box">
+            <div className="emergency-header">
+              Emergency Contact
+              <span onClick={() => setEmergencyOpen(false)}>✖</span>
+            </div>
+
+            <div className="emergency-body">
+              <p><strong>📞 Ambulance:</strong> 108</p>
+              <p><strong>☎ Hospital:</strong> +91 98765 43210</p>
+              <p><strong>🏥 24/7 Available</strong></p>
+            </div>
+          </div>
+        </div>
+      )}
+
+
 
 
       {/* WHY CHOOSE US SECTION */}
