@@ -5,7 +5,7 @@
   justify-content: space-between;
   padding: 0px 10%;
   width: 100%;
-  height: 60vh;
+  height: 70vh;
   background: linear-gradient(135deg, #425c86, #c4585f);
   color: #fff;
   gap: 40px;
@@ -33,7 +33,8 @@
 /* Hero Image */
 .tc-hero-image img {
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
+  margin-top: 30%;
 }
 
 /* ANIMATIONS */
@@ -78,8 +79,10 @@
   .tc-hero {
     flex-direction: column;
     text-align: center;
-    height: auto;
-    padding: 40px 10px;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    padding: 50px 0px 0px;
   }
 
   .tc-hero-image {
@@ -89,6 +92,7 @@
   .tc-hero-content h1 {
     font-size: 30px;
     margin-bottom: 10px;
+    margin-top: 50px;
   }
 
   .tc-hero-content p {

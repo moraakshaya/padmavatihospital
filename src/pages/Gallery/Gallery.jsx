@@ -81,18 +81,21 @@ function Gallery() {
   const [animateRight, setAnimateRight] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (entry.target === leftRef.current) setAnimateLeft(true);
-            if (entry.target === rightRef.current) setAnimateRight(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+   const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (entry.target === leftRef.current) setAnimateLeft(true);
+        if (entry.target === rightRef.current) setAnimateRight(true);
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.1,
+    rootMargin: "0px 0px -100px 0px",
+  }
+);
     if (leftRef.current) observer.observe(leftRef.current);
     if (rightRef.current) observer.observe(rightRef.current);
     return () => observer.disconnect();

@@ -148,7 +148,7 @@ function About() {
     <>
       {/* HERO SECTION */}
       <section className="about-hero">
-        <div className={`container ${animateHero ? "animate" : ""}`}>
+        <div className={`about-hero-content container ${animateHero ? "animate" : ""}`}>
           <h1 className="about-hero-title">About Our Hospital</h1>
           <p className="about-hero-subtitle">
             Delivering compassionate care with modern medical excellence.

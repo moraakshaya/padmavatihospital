@@ -7,7 +7,7 @@
   justify-content: space-between;
   padding: 0px 10%;
   width: 100%;
-  height: 60vh;
+  height: 70vh;
   background: linear-gradient(135deg, #425c86, #c4585f);
   color: #fff;
   gap: 40px;
@@ -36,6 +36,7 @@
 .pp-hero-image img {
   width: 100%;
   max-width: 450px;
+  margin-top: 60px;
 }
 
 /* Animation Classes */
@@ -94,8 +95,10 @@
   .pp-hero {
     flex-direction: column;
     text-align: center;
-    height: auto;
-    padding: 40px 10px;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    padding: 50px 0px 0;
   }
 
   .pp-hero-image {
@@ -104,6 +107,7 @@
 
   .pp-hero-content h1 {
     font-size: 34px;
+    margin-top: 50px;
   }
 
   .pp-hero-content p {
