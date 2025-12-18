@@ -59,7 +59,7 @@
   padding: 20px;
   border-radius: 10px;
     overflow-y: auto;
-  border-left: 4px solid #cda75e;
+  border-left: 4px solid #ed282e;
 }
 
 .blog-sidebar h3 {
@@ -101,7 +101,7 @@
 .share-box h3 {
   font-size: 20px;
   margin-bottom: 15px;
-  color: #548894;
+  color: #2d2a2e;
 }
 
 .share-icons {

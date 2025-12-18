@@ -251,7 +251,13 @@
     height: 60px;
     color: #fff;
     /* icon color */
-    background: linear-gradient(135deg, #c45857, #425c86);
+ background: linear-gradient(145deg, #ffa45f, #f5842a);
+ 
+  /* 3D effect */
+  box-shadow:
+    0 6px 14px rgba(245, 132, 42, 0.05),
+    inset 0 2px 3px rgba(255, 255, 255, 0.5),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.25);
     /* updated gradient */
     /* gradient background for icon */
     padding: 15px;
@@ -360,7 +366,7 @@
     display: flex;
     align-items: center;
     background: #f5faff;
-    border-left: 6px solid #cda75e;
+    border-left: 6px solid #ed282e;
     /* Highlight accent */
     padding: 20px;
     border-radius: 12px;
@@ -392,7 +398,7 @@
 
 .doctor-info h3 {
     font-size: 1.5rem;
-    color: #548894;
+    color: #2d2a2b;
     margin-bottom: 5px;
 }
 

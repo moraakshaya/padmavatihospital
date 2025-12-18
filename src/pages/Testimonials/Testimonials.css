@@ -113,7 +113,7 @@
 .google-review-btn {
     display: inline-block;
     padding: 12px 28px;
-    background: #c45857;
+   background: linear-gradient(145deg, #ff4a4f, #ed282e);
     /* Google blue */
     color: white;
     font-size: 16px;
@@ -121,7 +121,11 @@
     border-radius: 30px;
     text-decoration: none;
     transition: 0.3s ease;
-    box-shadow: 0px 4px 14px #c45857;
+    /* box-shadow: 0px 4px 14px #c45857; */
+     box-shadow:
+    0 8px 18px rgba(237, 40, 46, 0.05),
+    inset 0 3px 5px rgba(255, 255, 255, 0.35),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.25);
 }
 
 /* make it pop on hover */
