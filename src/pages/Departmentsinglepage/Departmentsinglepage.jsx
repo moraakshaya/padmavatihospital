@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import departmentsData from "../../data/departmentsinglepagedata";
+import { departmentsData } from "../../data/departmentsinglepagedata";
 import "./Departmentsinglepage.css";
 
 // ------------------ REUSABLE HOOK ------------------

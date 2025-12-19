@@ -1,7 +1,7 @@
 import { FiUserCheck, FiActivity, FiStar, FiLayers, FiHeart, FiCpu, FiAward, FiSmile, FiShield, FiPocket } from "react-icons/fi";
 import dr1 from "../assets/doctors/dr1.png";
 
-const departmentsData = [
+export const departmentsData = [
   // 1. Cardiology (already done)
   {
   id: 1,
@@ -1207,5 +1207,5 @@ const departmentsData = [
     ]
   }
 ];
-
 export default departmentsData;
+

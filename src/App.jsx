@@ -1,46 +1,162 @@
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Doctors from "./pages/Doctors/Doctors";
-import Departmentsinglepage from "./pages/Departmentsinglepage/Departmentsinglepage";
-import Gallery from "./pages/Gallery/Gallery";
-import Contact from "./pages/Contact/Contact";
-import Blog from "./pages/Blog/Blog";
-import BlogDetails from "./pages/Blog/BlogDetails";
-import Testimonials from "./pages/Testimonials/Testimonials";
-import Insurance from "./pages/Insurance/Insurance";
-import TermsAndConditions from "./pages/terms-&-conditions/terms-&-conditions";
-import PrivacyPolicy from "./pages/privacy-policy/privacy-policy"; 
-import Bookappoinment from "./pages/Bookappoinment/Bookappoinment";
-import Footer from "./components/Footer/Footer";
-import ScrollToTop from "./pages/ScrollToTop";
+import Layout from "./Layout";
 
-function App() {
-  return (
-    <>
-    <ScrollToTop />
-      <Navbar />
+export const routes = [
+  {
+    path: "/",
+    Component: Layout,
+    entry: "src/Layout.jsx",
+    children: [
+      // Home
+      {
+        index: true,
+        lazy: async () => {
+          const Component = (await import("./pages/Home/Home")).default;
+          return { Component };
+        },
+      },
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/doctors" element={<Doctors />} />
-        <Route path="/departments/:slug" element={<Departmentsinglepage />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogDetails />} />
-        <Route path="/testimonials" element={<Testimonials />} />
-        <Route path="/bookappoinment" element={<Bookappoinment />} />
-        <Route path="/insurance" element={<Insurance/>} />
-        <Route path="/terms-&-Conditions" element={<TermsAndConditions />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
-      </Routes>
+      // About
+      {
+        path: "about",
+        lazy: async () => {
+          const Component = (await import("./pages/About/About")).default;
+          return { Component };
+        },
+      },
 
-      <Footer />
-    </>
-  );
-}
+      // Doctors
+      {
+        path: "doctors",
+        lazy: async () => {
+          const Component = (await import("./pages/Doctors/Doctors")).default;
+          return { Component };
+        },
+      },
 
-export default App;
+      // Department Single Page (SEO)
+      {
+        path: "departments/:slug",
+        lazy: async () => {
+          const Component = (await import(
+            "./pages/Departmentsinglepage/Departmentsinglepage"
+          )).default;
+          return { Component };
+        },
+        getStaticPaths: () => [
+          "/departments/cardiology",
+          "/departments/general-medicine",
+          "/departments/diabetology",
+          "/departments/gastroenterology",
+          "/departments/pediatrics",
+          "/departments/neurology",
+          "/departments/pulmonology",
+          "/departments/orthopedics",
+          "/departments/nephrology",
+          "/departments/general-surgery",
+          "/departments/anesthesiology",
+          "/departments/pathology",
+          "/departments/urology",
+          "/departments/dermatology",
+           "/departments/physiotherapy",
+        ],
+      },
+
+      // Gallery
+      {
+        path: "gallery",
+        lazy: async () => {
+          const Component = (await import("./pages/Gallery/Gallery")).default;
+          return { Component };
+        },
+      },
+
+      // Contact
+      {
+        path: "contact",
+        lazy: async () => {
+          const Component = (await import("./pages/Contact/Contact")).default;
+          return { Component };
+        },
+      },
+
+      // Blog List
+      {
+        path: "blog",
+        lazy: async () => {
+          const Component = (await import("./pages/Blog/Blog")).default;
+          return { Component };
+        },
+      },
+
+      // Blog Details (SEO)
+      {
+        path: "blog/:slug",
+        lazy: async () => {
+          const Component = (await import("./pages/Blog/BlogDetails")).default;
+          return { Component };
+        },
+        getStaticPaths: () => [
+          "/blog/understanding-heart-health-tips",
+          "/blog/common-heart-problems-warning-signs",
+          "/blog/How to Manage Stress Effectively",
+          "/blog/building-emotional-resilience",
+          "/blog/top-immunity-boosting-foods",
+          "/blog/healthy-eating-for-energy-and-vitality",
+        ],
+      },
+
+      // Testimonials
+      {
+        path: "testimonials",
+        lazy: async () => {
+          const Component = (await import(
+            "./pages/Testimonials/Testimonials"
+          )).default;
+          return { Component };
+        },
+      },
+
+      // Book Appointment
+      {
+        path: "bookappoinment",
+        lazy: async () => {
+          const Component = (await import(
+            "./pages/Bookappoinment/Bookappoinment"
+          )).default;
+          return { Component };
+        },
+      },
+
+      // Insurance
+      {
+        path: "insurance",
+        lazy: async () => {
+          const Component = (await import("./pages/Insurance/Insurance")).default;
+          return { Component };
+        },
+      },
+
+      // Terms & Conditions
+      {
+        path: "terms-&-conditions",
+        lazy: async () => {
+          const Component = (await import(
+            "./pages/terms-&-conditions/terms-&-conditions"
+          )).default;
+          return { Component };
+        },
+      },
+
+      // Privacy Policy
+      {
+        path: "privacy-policy",
+        lazy: async () => {
+          const Component = (await import(
+            "./pages/privacy-policy/privacy-policy"
+          )).default;
+          return { Component };
+        },
+      },
+    ],
+  },
+];

@@ -1,4 +1,4 @@
-export const blogData = [
+ export const blogData = [
   // Category: Heart
   {
   id: 0,
@@ -373,3 +373,7 @@ export const blogData = [
 
 
 ];
+
+export default blogData;
+
+
